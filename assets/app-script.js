@@ -1,7 +1,6 @@
-// App Title
+// App Details
 var TITLE = "App Title";
-
-// Instructions for app
+var RATING = "Base/Comfortable/More Comfortable"
 var DESCRIPTION = "App Description";
 
 // Program
