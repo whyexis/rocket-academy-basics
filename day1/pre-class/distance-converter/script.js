@@ -1,7 +1,6 @@
-// App Title
+// App Details
 var TITLE = "Distance Converter";
-
-// Instructions for app
+var RATING = "Base"
 var DESCRIPTION = "Convert user input distance from kilometres to miles";
 
 // Program

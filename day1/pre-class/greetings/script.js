@@ -1,7 +1,6 @@
 // App Title
 var TITLE = "Greetings";
-
-// Instructions for app
+var RATING = "Base"
 var DESCRIPTION = "User inputs name and the app returns a personalised greeting with user's name";
 
 // Program
