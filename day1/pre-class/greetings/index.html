@@ -9,6 +9,7 @@
       function setup() {
         document.title = TITLE + " | RA Basics";
         document.getElementById("header").innerHTML = TITLE;
+        document.getElementById("rating").innerHTML = RATING;
         document.getElementById("description").innerHTML = DESCRIPTION;
       };
     </script>
@@ -18,6 +19,8 @@
   <body onload="setup()">
     <h1 id="header">Basics! 🚀</h1>
     <div id="container">
+      <h2>Rating</h2>
+      <p id="rating">Rating for App</p>
       <h2>Description</h2>
       <p id="description">Description for App</p>
       <input id="input-field" />
