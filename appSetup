@@ -4,6 +4,6 @@ path=$1
 # Create app directory
 mkdir $path
 # Copy files to new directory
-cp templates/app-* $path
+cp assets/app-* $path
 mv $path/app-index.html $path/index.html
 mv $path/app-script.js $path/script.js
