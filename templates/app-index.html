@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Basics</title>
+    <!-- Import program logic -->
+    <script src="app-script.js"></script>
+    <!-- Define button click functionality -->
+    <script>
+      // Set title for page, heading 1 and description
+      function setup() {
+        document.title = TITLE + " | RA Basics";
+        document.getElementById("header").innerHTML = TITLE;
+        document.getElementById("description").innerHTML = DESCRIPTION;
+      };
+    </script>
+    <title>RA Basics</title>
     <link rel="stylesheet" href="/assets/styles.css">
   </head>
-
-  <body>
+  <body onload="setup()">
     <h1 id="header">Basics! 🚀</h1>
     <div id="container">
-      <p>Input:</p>
+      <h2>Description</h2>
+      <p id="description">Description for App</p>
       <input id="input-field" />
       <br />
       <button id="submit-button">Submit</button>
       <p>Output:</p>
       <div id="output-div"></div>
     </div>
-    <!-- Import program logic -->
-    <script src="script.js"></script>
-    <!-- Define button click functionality -->
     <script>
-      var button = document.querySelector("#submit-button");
+    // Button setup
+      var button = document.getElementById("submit-button");
       button.addEventListener("click", function () {
         // Set result to input value
-        var input = document.querySelector("#input-field");
+        var input = document.getElementById("input-field");
         var result = main(input.value);
 
         // Display result in output element
-        var output = document.querySelector("#output-div");
+        var output = document.getElementById("output-div");
         output.innerHTML = result;
 
         // Reset input value
         input.value = "";
       });
-    </script>
+    </script>    
   </body>
 </html>

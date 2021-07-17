@@ -1,9 +1,11 @@
 // App Title
-var title = "";
+var TITLE = "App Title";
 
 // Instructions for app
-var instructions = "";
+var DESCRIPTION = "App Description";
 
-function main (input) {
-  return output
+// Program
+function main(input) {
+  output = "Hello World";
+  return output;
 }
