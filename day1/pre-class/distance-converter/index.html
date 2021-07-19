@@ -11,6 +11,7 @@
         document.getElementById("header").innerHTML = TITLE;
         document.getElementById("rating").innerHTML = RATING;
         document.getElementById("description").innerHTML = DESCRIPTION;
+        showBreadCrumb();
       }
 
       function showBreadCrumb() {
@@ -21,13 +22,11 @@
         for (index in crumbs) {
           let text = crumbs[index];
           if (index == 0) text = "Home";
-          document
-            .getElementById("breadcrumbs")
-            .append(
-              `<li><a class="crumb" ${
-                index == crumbs.length - 1 ? "active" : ""
-              }href="${"../".repeat(crumbs.length - index)}>${text}</a></li>`
-            );
+          var listItem = document.createElement("li");
+          listItem.innerHTML = `<a class="crumb" ${
+            index == crumbs.length - 1 ? "active" : ""
+          }href="${"../".repeat(crumbs.length - index)}>${text}</a>`;
+          document.getElementById("breadcrumbs").append(listItem);
         }
       }
     </script>
