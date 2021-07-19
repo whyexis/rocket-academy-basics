@@ -26,9 +26,9 @@
           }
           var listItem = document.createElement("li");
           var link = document.createElement("a");
-          link.innerHTML = text;
+          link.innerHTML = text.replaceAll("-", " ");
           link.setAttribute("class", "crumb");
-          link.setAttribute("href", "../".repeat(crumbs.length - (index + 1)));
+          link.setAttribute("href", "../".repeat(crumbs.length - index - 1));
           if (index == crumbs.length - 1) {
             link.setAttribute("active", "");
           }
