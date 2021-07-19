@@ -21,11 +21,18 @@
         crumbs.splice(0, 1);
         for (index in crumbs) {
           let text = crumbs[index];
-          if (index == 0) text = "Home";
+          if (index == 0) {
+            text = "Home";
+          }
           var listItem = document.createElement("li");
-          listItem.innerHTML = `<a class="crumb" ${
-            index == crumbs.length - 1 ? "active" : ""
-          }href="${"../".repeat(crumbs.length - index)}>${text}</a>`;
+          var link = document.createElement("a");
+          link.innerHTML = text;
+          link.setAttribute("class", "crumb");
+          link.setAttribute("href", "../".repeat(crumbs.length - index));
+          if (index == crumbs.length - 1) {
+            link.setAttribute("active", "");
+          }
+          listItem.append(link);
           document.getElementById("breadcrumbs").append(listItem);
         }
       }
