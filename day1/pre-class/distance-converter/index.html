@@ -11,14 +11,36 @@
         document.getElementById("header").innerHTML = TITLE;
         document.getElementById("rating").innerHTML = RATING;
         document.getElementById("description").innerHTML = DESCRIPTION;
-      };
+      }
+
+      function showBreadCrumb() {
+        let crumbs = window.location.pathname.split("/");
+        // Remove first and last apostrophe in the array
+        crumbs.pop();
+        crumbs.splice(0, 1);
+        for (index in crumbs) {
+          let text = crumbs[index];
+          if (index == 0) text = "Home";
+          document
+            .getElementById("breadcrumbs")
+            .append(
+              `<li><a class="crumb" ${
+                index == crumbs.length - 1 ? "active" : ""
+              }href="${"../".repeat(crumbs.length - index)}>${text}</a></li>`
+            );
+        }
+      }
     </script>
     <title>RA Basics</title>
-    <link rel="stylesheet" href="/rocket-academy-basics-whyexis/assets/styles.css">
+    <link
+      rel="stylesheet"
+      href="/rocket-academy-basics-whyexis/assets/styles.css"
+    />
   </head>
   <body onload="setup()">
-    <h1 id="header">Basics! 🚀</h1>
+    <ul id="breadcrumbs"></ul>
     <div id="container">
+      <h1 id="header">Basics! 🚀</h1>
       <h2>Rating</h2>
       <p id="rating">Rating for App</p>
       <h2>Description</h2>
@@ -30,7 +52,7 @@
       <div id="output-div"></div>
     </div>
     <script>
-    // Button setup
+      // Button setup
       var button = document.getElementById("submit-button");
       button.addEventListener("click", function () {
         // Set result to input value
@@ -44,6 +66,6 @@
         // Reset input value
         input.value = "";
       });
-    </script>    
+    </script>
   </body>
 </html>
