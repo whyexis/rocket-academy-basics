@@ -10,78 +10,222 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <style>
+      section {
+        padding: 60px 0;
+      }
+    </style>
     <title>RA Basics</title>
   </head>
   <body>
-    <div class="container-fluid p-3">
-      <h1 class="display-3 text-center">Rocket Academy Basics Course 🚀</h1>
-    </div>
-    <div class="container-lg bg-light p-3 my-2">
-      <h2 class="display-4 text-center p-2">Projects</h2>
-      <div class="row justify-content-center p-2">
-        <div class="col-sm-4 col d-flex justify-content-center">
-          <a href="projects/sps" class="btn btn-primary btn-block btn-lg"
-            >Scissors-Paper-Stone</a
-          >
-        </div>
-        <div class="col-sm-4 col d-flex justify-content-center">
-          <a
-            href="projects/beat-that"
-            class="btn btn-primary btn-block btn-lg"
-            role="button"
-            >Beat That</a
-          >
-        </div>
-        <div class="col-sm-4 col d-flex justify-content-center">
-          <a href="projects/blackjack" class="btn btn-primary btn-block btn-lg"
-            >Blackjack</a
-          >
-        </div>
-      </div>
-    </div>
-    <div class="container-lg bg-light p-3 my-2">
-      <h2 class="display-4 text-center p-2">Classes</h2>
-      <div class="row justify-content-center p-2">
-        <div class="col d-flex justify-content-center">
-          <a href="day1" class="btn btn-lg btn-primary">Day 1</a>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <a href="day2" class="btn btn-lg btn-primary">Day 2</a>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <a href="day3" class="btn btn-lg btn-primary">Day 3</a>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <a href="day4" class="btn btn-lg btn-primary">Day 4</a>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <a href="day5" class="btn btn-lg btn-primary">Day 5</a>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <a href="day6" class="btn btn-lg btn-primary">Day 6</a>
-        </div>
-      </div>
-      <div class="row justify-content-center p-2">
-        <div class="col d-flex justify-content-center">
-          <a href="day7" class="btn btn-lg btn-primary">Day 7</a>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <a href="day8" class="btn btn-lg btn-primary">Day 8</a>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <a href="day9" class="btn btn-lg btn-primary">Day 9</a>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <a href="day10" class="btn btn-lg btn-primary">Day 10</a>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <a href="day11" class="btn btn-lg btn-primary">Day 11</a>
-        </div>
-        <div class="col d-flex justify-content-center">
-          <a href="day12" class="btn btn-lg btn-primary">Day 12</a>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-md navbar-light pt-5 pb-4">
+      <div class="container-xxl">
+        <!-- navbar brand / title -->
+        <a class="navbar-brand" href="#intro">
+          <span class="text-secondary fw-bold">
+            Rocket Academy Basics - Demo
+          </span>
+        </a>
+        <!-- toggle button for mobile nav -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#main-nav"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- navbar links -->
+        <div
+          class="collapse navbar-collapse justify-content-end align-center"
+          id="main-nav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#overview">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#exercises">Exercises</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#credits">Credits</a>
+            </li>
+            <li class="nav-item ms-2 d-none d-md-inline">
+              <a
+                class="btn btn-secondary"
+                href="https://github.com/whyexis/rocket-academy-basics"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Source</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </nav>
+
+    <!--Intro-->
+    <section id="intro">
+      <div class="container-lg">
+        <div class="row g-4 justify-content-center align-items-center">
+          <div class="col-md-5 text-center text-md-start">
+            <h1>
+              <div class="display-2">Baby Steps</div>
+              <div class="display-6 text-muted">Into Software Development</div>
+            </h1>
+            <a
+              href="https://github.com/whyexis/rocket-academy-basics"
+              class="btn btn-secondary btn-lg"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Source</a
+            >
+          </div>
+          <div class="col-md-5 text-center d-none d-md-block"></div>
+        </div>
+      </div>
+    </section>
+
+    <!--Overview-->
+
+    <!--Projects-->
+    <section class="bg-light mt-5" id="projects">
+      <div class="container-lg">
+        <div class="text-center">
+          <h2>Projects</h2>
+          <p class="lead text-muted">Check out the projects made.</p>
+        </div>
+
+        <div class="row my-5 g-0 align-items-center justify-content-center">
+          <div class="col-8 col-lg-4 col-xl-3">
+            <div class="card border-0">
+              <div class="card-body text-center py-4">
+                <h4 class="card-title">Scissors Paper Stone</h4>
+                <p class="display-5 my-4 text-primary fw-bold">✂</p>
+                <p class="card-text mx-5 text-muted d-none d-lg-block">
+                  A classic game upgraded with
+                  <code class="text-primary">conditionals</code>.
+                </p>
+                <a
+                  href="projects/sps"
+                  class="btn btn-outline-primary btn-lg mt-3"
+                >
+                  Launch
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-9 col-lg-4">
+            <div class="card border-primary border-2">
+              <div class="card-header text-center text-primary">Capstone</div>
+              <div class="card-body text-center py-5">
+                <h4 class="card-title">Blackjack</h4>
+                <p class="display-5 my-4 text-primary fw-bold">🃏</p>
+                <p class="card-text mx-5 text-muted d-none d-lg-block">
+                  Built upon the foundations, boosted with
+                  <code class="text-primary">objects</code>.
+                </p>
+                <a
+                  href="projects/blackjack"
+                  class="btn btn-outline-primary btn-lg mt-3"
+                >
+                  Launch
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-8 col-lg-4 col-xl-3">
+            <div class="card border-0">
+              <div class="card-body text-center py-4">
+                <h4 class="card-title">Beat That</h4>
+                <p class="display-5 my-4 text-primary fw-bold">🎲</p>
+                <p class="card-text mx-5 text-muted d-none d-lg-block">
+                  A dice game fueled with
+                  <code class="text-primary">loops</code> and
+                  <code class="text-primary">arrays</code>.
+                </p>
+                <a
+                  href="projects/beat-that"
+                  class="btn btn-outline-primary btn-lg mt-3"
+                >
+                  Launch
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end container-->
+    </section>
+
+    <!--Exercises-->
+
+    <!--Credits-->
+    <section class="bg-light mt-5" id="credits">
+      <div class="container-lg">
+        <div class="text-center">
+          <h2>Credits</h2>
+          <p class="lead text-muted">This demo is powered by the following.</p>
+        </div>
+
+        <div class="row my-5 g-0 align-items-center justify-content-center">
+          <div class="col-8 col-lg-4 col-xl-3">
+            <div class="card border-0">
+              <div class="card-body text-center py-4">
+                <h4 class="card-title">Rocket Academy</h4>
+                <p class="display-5 my-4 text-primary fw-bold">✂</p>
+                <p class="card-text mx-5 text-muted d-none d-lg-block">
+                  A classic game upgraded with
+                  <code class="text-primary">conditionals</code>.
+                </p>
+                <a
+                  href="projects/sps"
+                  class="btn btn-outline-primary btn-lg mt-3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-8 col-lg-4 col-xl-3">
+            <div class="card border-0">
+              <div class="card-body text-center py-4">
+                <h4 class="card-title">Bootstrap</h4>
+                <p class="display-5 my-4 text-primary fw-bold">🎲</p>
+                <p class="card-text mx-5 text-muted d-none d-lg-block">
+                  A dice game fueled with
+                  <code class="text-primary">loops</code> and
+                  <code class="text-primary">arrays</code>.
+                </p>
+                <a
+                  href="projects/beat-that"
+                  class="btn btn-outline-primary btn-lg mt-3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end container-->
+    </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
