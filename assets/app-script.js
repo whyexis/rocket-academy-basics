@@ -1,9 +1,10 @@
-// App Details
-var TITLE = "App Title";
-var RATING = "Base/Comfortable/More Comfortable"
-var DESCRIPTION = "App Description";
+// String Constants
 
-// Program
+// Global Variables
+
+// Modules
+
+// Main
 function main(input) {
   output = "Hello World";
   return output;
