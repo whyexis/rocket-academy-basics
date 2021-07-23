@@ -26,49 +26,6 @@ const wordGameHints = [
 ];
 var revealedHints = "";
 
-// Main
-var main = function (name, mode, choice, input) {
-  // Set user name if the input is not blank, otherwise use the default value "Player"
-  if (name != "") {
-    userName = name;
-  }
-
-  // Resets last winner for Korean SPS for interim wins
-  if (mode != KOREAN) {
-    lastWinner = NOBODY;
-  }
-
-  // Set computer and user choices
-  var computerShape = getComputerShape();
-  var userShape = Number(choice);
-
-  // Game play depending on mode selected
-  switch (mode) {
-    case NORMAL:
-      result = playNormalSPS(userShape, computerShape);
-      break;
-    case REVERSED:
-      result = playReversedSPS(userShape, computerShape);
-      break;
-    case KOREAN:
-      result = playKoreanSPS(userShape, computerShape);
-      break;
-    case COMPUTER:
-      userShape = getComputerShape();
-      result = playNormalSPS(userShape, computerShape);
-      break;
-    case WORD:
-      return playSecretWord(input);
-    case DICE:
-      return playDiceGame(input);
-  }
-
-  // Calculate total number of plays
-  var totalPlays = Number(userWins) + Number(computerWins) + Number(draws);
-
-  return generateOutputMessage(userShape, computerShape, totalPlays);
-};
-
 // Modules
 
 // Computer Shape Generator
@@ -229,4 +186,47 @@ function generateOutputMessage(userShape, computerShape, totalPlays) {
   message += `<br>${userName}'s score so far:<br>Out of ${totalPlays} rounds, ${userWins} wins, ${computerWins} losses, ${draws} draws.<br>`;
   message += `Choose a version and shape to play another round!&#x1F648`;
   return message;
+}
+
+// Main
+function main(name, mode, choice, input) {
+  // Set user name if the input is not blank, otherwise use the default value "Player"
+  if (name != "") {
+    userName = name;
+  }
+
+  // Resets last winner for Korean SPS for interim wins
+  if (mode != KOREAN) {
+    lastWinner = NOBODY;
+  }
+
+  // Set computer and user choices
+  var computerShape = getComputerShape();
+  var userShape = Number(choice);
+
+  // Game play depending on mode selected
+  switch (mode) {
+    case NORMAL:
+      result = playNormalSPS(userShape, computerShape);
+      break;
+    case REVERSED:
+      result = playReversedSPS(userShape, computerShape);
+      break;
+    case KOREAN:
+      result = playKoreanSPS(userShape, computerShape);
+      break;
+    case COMPUTER:
+      userShape = getComputerShape();
+      result = playNormalSPS(userShape, computerShape);
+      break;
+    case WORD:
+      return playSecretWord(input);
+    case DICE:
+      return playDiceGame(input);
+  }
+
+  // Calculate total number of plays
+  var totalPlays = Number(userWins) + Number(computerWins) + Number(draws);
+
+  return generateOutputMessage(userShape, computerShape, totalPlays);
 }
