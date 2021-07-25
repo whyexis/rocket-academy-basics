@@ -69,7 +69,9 @@
                 </li>
                 <li>
                   <a href="/rocket-academy-basics/projects/blackjack" class="dropdown-item"
-                    >Blackjack</a
+                    ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 20 20">
+                      <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                    </svg> Blackjack</a
                   >
                 </li>
               </ul>
@@ -117,98 +119,238 @@
               <path d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
             </svg> Description
           </button>
-
         </div>
 
         <!--User Input-->
         <div class="row justify-content-center align-items-center m-4">
           <div class="col-lg-6 col-md-8 text-center">
             
-            <input class="text-center" id="name-field" placeholder="Please enter your name."/>
-      <form class="text-center p-3" name="game_mode">
-        <p>Please select a game to play.</p>
-        <label for="normal"
-          ><input
-            type="radio"
-            id="normal"
-            name="game_mode"
-            value="normal"
-            checked
-          />🕹️ Normal Scissors Paper Stone</label
-        ><br />
-        <label for="reversed"
-          ><input
-            type="radio"
-            id="reversed"
-            name="game_mode"
-            value="reversed"
-          />🔄 Reversed Scissors Paper Stone</label
-        ><br />
-        <label for="korean"
-          ><input
-            type="radio"
-            id="korean"
-            name="game_mode"
-            value="korean"
-          />🇰🇷 Korean Scissors Paper Stone</label
-        ><br />
-        <label for="computer"
-          ><input
-            type="radio"
-            id="computer"
-            name="game_mode"
-            value="Computer"
-          />&#x1F916 Computer Scissors Paper Stone</label
-        ><br />
-        <label for="word"
-          ><input
-            type="radio"
-            id="word"
-            name="game_mode"
-            value="word"
-          />❓ Guess the Secret Word</label
-        ><br />
-        <label for="dice"
-          ><input
-            type="radio"
-            id="dice"
-            name="game_mode"
-            value="dice"
-          />🎲 Guess the Die Roll</label
-        ><br />
-      </form>
-      <form class="text-center p-3" name="player_choice">
-        <p>Please select a shape to play for Scissors Paper Stone.</p>
-        <label for="scissors"
-          ><input
-            type="radio"
-            id="scissors"
-            name="player_choice"
-            value="1"
-            checked
-          />&#x2702 Scissors</label
-        ><br />
-        <label for="paper"
-          ><input
-            type="radio"
-            id="paper"
-            name="player_choice"
-            value="2"
-          />&#x1F4C4 Paper</label
-        ><br />
-        <label for="stone"
-          ><input
-            type="radio"
-            id="stone"
-            name="player_choice"
-            value="3"
-          />&#x26F0 Stone</label
-        ><br />
-      </form>
-      <input class="text-center" id="guess-field" placeholder="Please guess the secret word or die roll."/>
-      <div class="text-center">
-        <button class="btn btn-primary btn-lg" id="submit-button">Play</button>
-      </div>
+
+            <input class="form-control text-center" id="name-field" placeholder="Please enter your name."/>
+            
+            
+
+            <form class="text-center p-3" name="game_mode">
+              <p>Please select a game to play.</p>
+              <div class="btn-group-vertical" role="group" aria-label="Game selection">
+              <input
+                type="radio"
+                class="btn-check"
+                id="normal"
+                name="game_mode"
+                value="normal"
+                checked
+              >
+              <label class="btn btn-outline-primary" for="normal"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-joystick" viewBox="0 0 20 20">
+                <path d="M10 2a2 2 0 0 1-1.5 1.937v5.087c.863.083 1.5.377 1.5.726 0 .414-.895.75-2 .75s-2-.336-2-.75c0-.35.637-.643 1.5-.726V3.937A2 2 0 1 1 10 2z"/>
+                <path d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23z"/>
+              </svg> Normal SPS</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                id="reversed"
+                name="game_mode"
+                value="reversed"
+              >
+              <label class="btn btn-outline-primary" for="reversed"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-skip-backward-circle-fill" viewBox="0 0 20 20">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.79-2.907L8.5 7.028V5.5a.5.5 0 0 0-.79-.407L5 7.028V5.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0V8.972l2.71 1.935a.5.5 0 0 0 .79-.407V8.972l2.71 1.935A.5.5 0 0 0 12 10.5v-5a.5.5 0 0 0-.79-.407z"/>
+              </svg> Reversed SPS</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                id="korean"
+                name="game_mode"
+                value="korean"
+              >
+              <label class="btn btn-outline-primary" for="korean">🇰🇷 Korean SPS</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                id="computer"
+                name="game_mode"
+                value="Computer"
+              >
+              <label class="btn btn-outline-primary" for="computer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cpu-fill" viewBox="0 0 20 20">
+                <path d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+                <path d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z"/>
+              </svg> Computer SPS</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                id="word"
+                name="game_mode"
+                value="word"
+              ><label class="btn btn-outline-primary" for="word"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-patch-question-fill" viewBox="0 0 20 20">
+                <path d="M5.933.87a2.89 2.89 0 0 1 4.134 0l.622.638.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636zM7.002 11a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm1.602-2.027c.04-.534.198-.815.846-1.26.674-.475 1.05-1.09 1.05-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745.336 0 .504-.24.554-.627z"/>
+              </svg> Secret Word</label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                id="dice"
+                name="game_mode"
+                value="dice"
+              >
+              <label class="btn btn-outline-primary" for="dice"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dice-6-fill" viewBox="0 0 20 20">
+                <path d="M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3zm1 5.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm8 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm1.5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM12 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM4 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+              </svg> Dice Roll Guess</label>
+              </div>
+            </form>
+
+            <form class="text-center p-3" name="player_choice">
+              <p>Please choose a shape for Scissors Paper Stone.</p>
+              <div class="btn-group" role="group" aria-label="Scissors paper stone shape selection">
+                
+                <input
+                  type="radio"
+                  class="btn-check"
+                  id="scissors"
+                  name="player_choice"
+                  value="1"
+                  checked
+                >
+                <label class="btn btn-outline-primary" for="scissors"><svg id="Capa_1" enable-background="new 0 0 512 512" height="20px" viewBox="0 0 512 512" width="20px" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g><path d="m398.039 120.159c20.404-43.725 3.428-95.071-37.386-118.555-5.174-2.977-11.789-1.129-14.684 4.091l-72.766 131.183 63.561 114.589z"/><path d="m187.154 347.771-14.132-30.284-7.878 14.203c-48.937-27.041-110.331-7-133.883 43.469-22.464 48.139-1.622 105.36 46.552 127.807s105.436 1.621 127.9-46.518l33.731-72.98c-22.457-1.451-42.696-15.137-52.29-35.697zm-48.14 111.428c-24.383 11.351-52.871.453-63.94-23.25-11.23-24.049-.82-52.678 23.282-63.901 24.383-11.353 52.87-.454 63.94 23.249 11.231 24.049.82 52.68-23.282 63.902z"/><path d="m480.738 374.979c-23.521-50.405-84.883-70.545-133.883-43.469l-180.824-325.996c-2.895-5.22-9.51-7.068-14.684-4.091-40.814 23.484-57.791 74.83-37.386 118.555l100.379 215.106c5.271 11.295 16.607 18.515 29.072 18.515h15.423l47.453 102.669c22.464 48.139 79.727 68.965 127.9 46.518 48.172-22.447 69.014-79.669 46.55-127.807zm-224.738-73.979c-8.284 0-15-6.716-15-15s6.716-15 15-15 15 6.716 15 15-6.716 15-15 15zm157.841 158.199c-24.383 11.351-52.871.453-63.94-23.25-11.23-24.049-.82-52.678 23.282-63.901 24.383-11.353 52.87-.454 63.94 23.249 11.232 24.049.821 52.68-23.282 63.902z"/></g></svg> Scissors</label>
+
+                <input
+                  type="radio"
+                  class="btn-check"
+                  id="paper"
+                  name="player_choice"
+                  value="2"
+                />
+                <label class="btn btn-outline-primary" for="paper"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  width="20px" height="20px" fill="currentColor" viewBox="0 0 957.599 957.6" style="enable-background:new 0 0 957.599 957.6;"
+                  xml:space="preserve">
+               <g>
+                 <path d="M817.9,108.4h-28v687.901c0,45.699-37.2,82.898-82.899,82.898H423.3H197.7v25.5c0,29.201,23.7,52.9,52.9,52.9h283.6H817.8
+                   c29.2,0,52.899-23.699,52.899-52.9V161.3C870.7,132.1,847.1,108.4,817.9,108.4z"/>
+                 <path d="M423.3,849.199h283.6c29.2,0,52.9-23.699,52.9-52.898V108.4V52.9c0-29.2-23.7-52.9-52.9-52.9H423.3H329v17.5
+                   c0.199,1.8,0.3,3.7,0.3,5.6v115.3V168c0,41.1-33.4,74.5-74.5,74.5h-29.6H109.9c-1.5,0-3.1-0.1-4.6-0.2H86.9v554.001
+                   c0,29.199,23.7,52.898,52.9,52.898h58H423.3L423.3,849.199z M434,669.4H249.1c-13.8,0-25-11.201-25-25c0-13.801,11.2-25,25-25h185
+                   c13.8,0,25,11.199,25,25C459.1,658.199,447.8,669.4,434,669.4z M619,541.801H249.1c-13.8,0-25-11.201-25-25c0-13.801,11.2-25,25-25
+                   H619c13.8,0,25,11.199,25,25C644,530.6,632.8,541.801,619,541.801z M249.1,356.3H619c13.8,0,25,11.2,25,25c0,13.8-11.2,25-25,25
+                   H249.1c-13.8,0-25-11.2-25-25C224.1,367.5,235.3,356.3,249.1,356.3z"/>
+                 <path d="M109.9,212.5h144.9c0.1,0,0.3,0,0.4,0c24.2-0.2,43.8-19.8,44-44c0-0.1,0-0.3,0-0.4v-145c0-13.4-11-22.3-22.399-22.3
+                   c-5.5,0-11,2-15.6,6.6L94.1,174.5C80.1,188.5,90,212.5,109.9,212.5z"/>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               </svg> Paper</label>
+
+                <input
+                  type="radio"
+                  class="btn-check"
+                  id="stone"
+                  name="player_choice"
+                  value="3"
+                />
+                <label class="btn btn-outline-primary" for="stone"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" fill="currentColor"
+                  viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+               <g>
+                 <g>
+                   <polygon points="134.75,460.185 2.01,239.935 0,236.445 0,389.185 130.42,465.575 139.77,471.055 		"/>
+                 </g>
+               </g>
+               <g>
+                 <g>
+                   <polygon points="90.39,328.465 153.9,433.845 261.55,279.055 		"/>
+                 </g>
+               </g>
+               <g>
+                 <g>
+                   <polygon points="89.12,124.505 77.37,115.875 16.14,204.405 27.92,224.795 74.37,301.875 263.76,247.185 		"/>
+                 </g>
+               </g>
+               <g>
+                 <g>
+                   <polygon points="242.33,36.565 239.61,25.315 99.51,94.925 106.75,100.245 276.49,219.485 		"/>
+                 </g>
+               </g>
+               <g>
+                 <g>
+                   <polygon points="323.39,470.545 289.84,290.935 170.4,462.685 159.99,476.855 178.02,477.925 316.34,486.095 326.22,486.685 		"/>
+                 </g>
+               </g>
+               <g>
+                 <g>
+                   <polygon points="270.56,25.755 271.75,30.675 345.46,425.315 443.56,225.925 452.56,206.755 		"/>
+                 </g>
+               </g>
+               <g>
+                 <g>
+                   <polygon points="473.77,232.175 470.54,239.045 354.66,474.565 352.14,481.625 355.55,479.315 468.78,402.615 512,311.335 		"/>
+                 </g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               <g>
+               </g>
+               </svg> Stone</label>          
+              </div>
+              
+            </form>
+            <input class="form-control text-center" id="guess-field" placeholder="Please guess the secret word or die roll."/>
+            <div class="text-center">
+              <button class="btn btn-primary btn-lg mt-3" id="submit-button">Play</button>
+            </div>
       
           </div>
         </div>
@@ -216,7 +358,7 @@
         <!--Output-->        
         <div class="row justify-content-center align-items-center mx-4">
           <div class="col-lg-6 col-md-8 bg-dark rounded-3 text-center p-3">
-            <code class="text-light" id="output">Your output appears here. (Hopefully...)</code>
+            <code class="text-light" id="output">The output appears here. (hopefully...)</code>
           </div>
         </div>
       
@@ -233,7 +375,7 @@
         <!--CHANGE DESCRIPTION-->
           <div>
             <p class="lead fw-bold my-2">Scissors Paper Stone</p>
-            <p>The player inputs one of "scissors", "paper", or "stone", while the program randomly chooses one of the three shapes and outputs who won or if there is a draw. The rules are: scissors beats paper, paper beats stone, and stone beats scissors. If both parties choose the same object, it's a draw</p>
+            <p>The player inputs one of "scissors", "paper", or "stone", while the program randomly chooses one of the three shapes and outputs who won or if there is a draw. The rules are: scissors beats paper, paper beats stone, and stone beats scissors. If both parties choose the same object, it's a draw.</p>
 
             <p class="lead fw-bold my-2">Reversed Scissors Paper Stone</p>
             <p>The rules are reversed: scissors beat stone, stone beats paper, and paper beats scissors.</p>
