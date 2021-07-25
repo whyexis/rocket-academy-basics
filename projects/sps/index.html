@@ -102,7 +102,7 @@
         <div class="text-center">
 
           <!--CHANGE HEADING-->
-          <h1 class="display-4">Scissors Paper Stone Super App</h1>
+          <h1 class="display-4">Scissors Paper Stone</h1>
 
           <p class="lead my-4">
             <!--CHANGE BADGE-->
@@ -111,18 +111,21 @@
             <span class="badge rounded-pill bg-danger px-3">More Comfortable</span>
           </p>
 
-        </div>
-
-        <!--Description Button-->
-        <div class="text-center my-2">
+          <!--Description Button-->
           <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#description" aria-controls="description">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-book-fill" viewBox="0 0 20 20">
               <path d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
             </svg> Description
           </button>
+
         </div>
-        <input class="text" id="name-field" placeholder="Please enter your name."/>
-      <form name="game_mode">
+
+        <!--User Input-->
+        <div class="row justify-content-center align-items-center m-4">
+          <div class="col-lg-6 col-md-8 text-center">
+            
+            <input class="text-center" id="name-field" placeholder="Please enter your name."/>
+      <form class="text-center p-3" name="game_mode">
         <p>Please select a game to play.</p>
         <label for="normal"
           ><input
@@ -174,7 +177,7 @@
           />🎲 Guess the Die Roll</label
         ><br />
       </form>
-      <form name="player_choice">
+      <form class="text-center p-3" name="player_choice">
         <p>Please select a shape to play for Scissors Paper Stone.</p>
         <label for="scissors"
           ><input
@@ -202,14 +205,17 @@
           />&#x26F0 Stone</label
         ><br />
       </form>
-      <br>
-      <input class="text" id="guess-field" placeholder="Please guess the secret word or die roll."/>
-
-      <button id="submit-button">Play</button>
+      <input class="text-center" id="guess-field" placeholder="Please guess the secret word or die roll."/>
+      <div class="text-center">
+        <button class="btn btn-primary btn-lg" id="submit-button">Play</button>
+      </div>
+      
+          </div>
+        </div>
 
         <!--Output-->        
-        <div class="row justify-content-center align-items-center">
-          <div class="col-4 bg-dark p-4 rounded-3">
+        <div class="row justify-content-center align-items-center mx-4">
+          <div class="col-lg-6 col-md-8 bg-dark rounded-3 text-center p-3">
             <code class="text-light" id="output">Your output appears here. (Hopefully...)</code>
           </div>
         </div>
@@ -226,7 +232,51 @@
         <div class="offcanvas-body">
         <!--CHANGE DESCRIPTION-->
           <div>
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+            <p class="lead fw-bold my-2">Scissors Paper Stone</p>
+            <p>The player inputs one of "scissors", "paper", or "stone", while the program randomly chooses one of the three shapes and outputs who won or if there is a draw. The rules are: scissors beats paper, paper beats stone, and stone beats scissors. If both parties choose the same object, it's a draw</p>
+
+            <p class="lead fw-bold my-2">Reversed Scissors Paper Stone</p>
+            <p>The rules are reversed: scissors beat stone, stone beats paper, and paper beats scissors.</p>
+
+            <p class="lead fw-bold my-2">Computer Scissors Paper Stone</p>
+            <p>The computer chooses a shape for the player on each turn.</p>
+
+            <p class="lead fw-bold my-2">Korean Scissors Paper Stone</p>
+            <p>The player or computer only wins if a draw follows after a win.</p>
+
+            <p class="lead fw-bold my-2">Secret Word</p>
+            <p>Guess the secret word with four hints given out after each wrong guess.</p>
+
+            <p class="lead fw-bold my-2">Dice Game</p>
+            <p>Guess the die roll between one to six.</p>
+
+            <p class="lead my-2">
+              <span class="badge rounded-pill bg-success px-3">Base</span>
+            </p>
+            <ul>
+              <li>Basic Scissors Paper Stone</li>
+              <li>Input Validation</li>
+              <li>Win-Loss Record</li>
+              <li>User Name</li>
+            </ul>
+
+            <p class="lead my-2">
+              <span class="badge rounded-pill bg-warning px-3 text-dark">Comfortable</span>
+            </p>
+            <ul>
+              <li>Improved Output Format</li>
+              <li>Reversed Version</li>
+              <li>Computer Version</li>
+            </ul>
+
+            <p class="lead my-2">
+              <span class="badge rounded-pill bg-danger px-3">More Comfortable</span>
+            </p>
+            <ul>
+              <li>Korean Version</li>
+              <li>Secret Word</li>
+              <li>Dice Game</li>
+            </ul>
           </div>
         </div>
       </div>
