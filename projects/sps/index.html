@@ -431,9 +431,38 @@
       crossorigin="anonymous"
     ></script>
     <!-- Import program logic -->
-    <script src="script.js"></script>
+    <script src="script.js">
+    </script>
     <!-- Define button click functionality -->
     <script>
+      console.log(`%c
+         /\\
+        |==|
+        |  |
+        |  |
+        |  |
+       /____\\
+       |    |
+       |tre |
+       |  IX|
+       |    |
+      /| |  |\\
+     / | |  | \\
+    /__|_|__|__\\
+       /_\/_\\
+       ######
+      ########
+       ######
+        ####
+        ####
+         ##
+         ##   tre
+         ##
+         ##
+    `, 'color: goldenrod');
+    console.log(`Congrats, you found the easter egg!`)
+    console.log(`%cOr are you here for some debugging? *teehee*`, `color: red`);
+    console.log("ASCII art from ascii-art.de/ascii/pqr/rockets.txt")
       var button = document.getElementById("submit-button");
       button.addEventListener("click", function () {
         var name = document.getElementById("name-field").value;
