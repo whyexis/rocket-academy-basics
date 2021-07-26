@@ -23,6 +23,6 @@
  */
 
 function main(input) {
-  output = "Hello World";
+  var output = "Hello World";
   return output;
 }
