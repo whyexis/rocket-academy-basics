@@ -1,8 +1,14 @@
 # Rocket Academy Basics Course Demo
 
-A demo of the apps coded from [Rocket Academy Coding Basics Course](https://www.rocketacademy.co/courses/basics) and a journal of takeaways.
+A demo of the apps coded from [Rocket Academy Coding Basics Course](https://www.rocketacademy.co/courses/basics) and a [journal](journal.md) of takeaways.
 
 Over six weeks, the course uses a flipped classroom format that prompts students towards a general direction to figure things out on their own. The course exercises taught coding principles while three assigned projects allowed students to apply their learnings.
+
+## Projects
+
+- [Scissors Paper Stone](https://whyexis.github.io/rocket-academy-basics/projects/sps/)
+- [Beat That](https://whyexis.github.io/rocket-academy-basics/projects/beat-that/)
+- [Blackjack](https://whyexis.github.io/rocket-academy-basics/projects/blackjack/)
 
 ## Modules
 
@@ -16,8 +22,8 @@ Over six weeks, the course uses a flipped classroom format that prompts students
 
 ## Tools
 
-1. Visual Studio Code
-1. Git-Bash
-1. Git
-1. GitHub
-1. Chrome Dev Tools
+- Visual Studio Code
+- Git-Bash
+- Git
+- GitHub
+- Chrome Dev Tools
