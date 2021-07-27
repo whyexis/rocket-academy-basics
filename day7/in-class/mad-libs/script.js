@@ -3,6 +3,8 @@
  * Constants
  * ------------------------------------------------------------------------
  */
+var NORMAL = "normal";
+var CREATE = "create";
 
 /**
  * ------------------------------------------------------------------------
@@ -10,6 +12,7 @@
  * ------------------------------------------------------------------------
  */
 var wordsArray = [];
+var gameMode = NORMAL;
 /**
  * ------------------------------------------------------------------------
  * Helper Functions
@@ -27,7 +30,19 @@ function getRandomAdj() {
  */
 
 function main(input) {
-  if (input == "create") {
+  if (input == CREATE) {
+    gameMode = CREATE;
+    var randomAdj = getRandomAdj();
+    var madLib = `"Yabadabadoo!" he said gleefully as he jumped into his convertible Tree Car and drove off with his ${randomAdj} wife.`;
+    return madLib;
+  }
+
+  if (input == NORMAL) {
+    gameMode = NORMAL;
+    return `The game mode is now in input mode.`;
+  }
+
+  if (gameMode == CREATE) {
     var randomAdj = getRandomAdj();
     var madLib = `"Yabadabadoo!" he said gleefully as he jumped into his convertible Tree Car and drove off with his ${randomAdj} wife.`;
     return madLib;
