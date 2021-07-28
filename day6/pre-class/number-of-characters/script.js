@@ -10,6 +10,8 @@
  * ------------------------------------------------------------------------
  */
 
+// Intended Method
+
 function generateCharacters(input) {
   var output = "";
   for (var counter = 1; counter <= input; counter += 1) {
@@ -17,6 +19,14 @@ function generateCharacters(input) {
   }
   return output;
 }
+// */
+
+// Unintended method
+/*
+function generateCharacters(input) {
+  return "👍".repeat(input);
+}
+// */
 
 /**
  * ------------------------------------------------------------------------
