@@ -14,10 +14,8 @@ var EMOJI = "📐";
 function generateTriangle(dimension) {
   var output = "";
   for (var rowCounter = 1; rowCounter <= dimension; rowCounter += 1) {
-    for (var colCounter = 1; colCounter <= dimension; colCounter += 1) {
-      if (colCounter <= rowCounter) {
-        output += EMOJI;
-      }
+    for (var colCounter = 0; colCounter < rowCounter; colCounter += 1) {
+      output += EMOJI;
     }
     output += "<br>";
   }
