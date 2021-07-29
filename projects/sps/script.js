@@ -1,4 +1,9 @@
-// Store string constants in variables
+/**
+ * ------------------------------------------------------------------------
+ * Constants
+ * ------------------------------------------------------------------------
+ */
+
 var WIN = "win";
 var LOSE = "lose";
 var DRAW = "draw";
@@ -11,7 +16,12 @@ var SECRET = "diamond";
 var DICE = "dice";
 var NOBODY = "Nobody";
 
-// Global variables
+/**
+ * ------------------------------------------------------------------------
+ * Global Variables
+ * ------------------------------------------------------------------------
+ */
+
 var userName = "Player";
 var result;
 var userWins = 0;
@@ -26,34 +36,74 @@ const wordGameHints = [
 ];
 var revealedHints = "";
 
-// Modules
+/**
+ * ------------------------------------------------------------------------
+ * Helper Functions
+ * ------------------------------------------------------------------------
+ */
 
-// Computer Shape Generator
+/**
+ * ------------------------------------------------------------------------
+ * Computer returns a random number that represents a shape.
+ * [1] Scissors
+ * [2] Paper
+ * [3] Stone
+ * @return  {Number}   The number representing a shape.
+ * ------------------------------------------------------------------------
+ */
 function getComputerShape() {
   var randomDecimal = Math.random() * 3;
   var randomInteger = Math.floor(randomDecimal) + 1;
   return randomInteger;
 }
 
-// Emoji Generator
+/**
+ * ------------------------------------------------------------------------
+ * Returns an emoji based on the number.
+ * [1] Scissors
+ * [2] Paper
+ * [3] Stone
+ * @param   {Number}  shape  The number representing a shape.
+ * @return  {String}         The emoji.
+ * ------------------------------------------------------------------------
+ */
 function getEmoji(shape) {
   switch (shape) {
     case 1:
-      return "&#x2702";
+      return "✂";
     case 2:
-      return "&#x1F4C4";
+      return "📄";
     case 3:
-      return "&#x26F0";
+      return "⛰";
   }
 }
 
-// Modulus Function
-function mod(n, m) {
-  var remainder = n % m;
-  return Math.floor(remainder >= 0 ? remainder : remainder + m);
+/**
+ * ------------------------------------------------------------------------
+ * Modulus Function because the % operator in JavaScript only returns remainder.
+ * @param   {Number}  number  The number to undergo modulus.
+ * @param   {Number}  modulus The modulus
+ * @return  {Number}          The number after going through modulus.
+ * ------------------------------------------------------------------------
+ */
+function mod(number, modulus) {
+  var remainder = number % modulus;
+  return Math.floor(remainder >= 0 ? remainder : remainder + modulus);
 }
 
-// Normal SPS Logic
+/**
+ * ------------------------------------------------------------------------
+ * The logic for Scissors Paper Stone is isomorphic to modular arithmetic.
+ * Subtract the number chosen by the user from the number chosen by computer, and then take the difference modulo 3.
+ * The user wins if the difference is one.
+ * The comuters wins if the difference is two.
+ * If the difference is zero, the game is a tie.
+ * Tracks the score of the user.
+ * @param   {Number}  userShape     The shape chosen by the user.
+ * @param   {Number}  computerShape The shape chosen by the computer.
+ * @return  {String}                The outcome for the user.
+ * ------------------------------------------------------------------------
+ */
 function playNormalSPS(userShape, computerShape) {
   var difference = mod(Number(computerShape) - Number(userShape), 3);
   switch (difference) {
@@ -85,7 +135,14 @@ function playReversedSPS(userShape, computerShape) {
   }
 }
 
-// Korean SPS Logic
+/**
+ * ------------------------------------------------------------------------
+ * This SPS function is for Korean SPS.
+ * @param   {Number}  userShape     The shape chosen by the user.
+ * @param   {Number}  computerShape The shape chosen by the computer.
+ * @return  {String}                The outcome for the user.
+ * ------------------------------------------------------------------------
+ */
 function playSPS(userShape, computerShape) {
   var difference = mod(Number(computerShape) - Number(userShape), 3);
   switch (difference) {
@@ -98,6 +155,16 @@ function playSPS(userShape, computerShape) {
   }
 }
 
+/**
+ * ------------------------------------------------------------------------
+ * Calls the playSPS function to determine whether the player or computer got the advantage.
+ * Sets the last winner to the player that won.
+ * The player with the advantage win when there is a draw.
+ * @param   {Number}  userShape     The shape chosen by the user.
+ * @param   {Number}  computerShape The shape chosen by the computer.
+ * @return  {String}                The outcome for the user.
+ * ------------------------------------------------------------------------
+ */
 function playKoreanSPS(userShape, computerShape) {
   switch (playSPS(userShape, computerShape)) {
     case WIN:
@@ -106,6 +173,7 @@ function playKoreanSPS(userShape, computerShape) {
     case LOSE:
       lastWinner = COMPUTER;
       return KOREAN;
+    // Checks if a player is the last winner, if not play continues. After a win, resets the last winner.
     case DRAW:
       if (lastWinner == userName) {
         userWins += 1;
@@ -122,12 +190,22 @@ function playKoreanSPS(userShape, computerShape) {
   }
 }
 
-// Secret Word Game
+/**
+ * ------------------------------------------------------------------------
+ * Guess Secret Word Game.
+ * Gives out up to 4 hints after each wrong guess of the word.
+ * @param   {String}  input     The user's guess for the secret word.
+ * @return  {String}            The hints if wrong and outcome for the user.
+ * ------------------------------------------------------------------------
+ */
 function playSecretWord(input) {
+  // Converts text input to lowercase
+  input = String(input).toLowerCase();
+
   if (input == SECRET) {
     return "You got the secret word! Shining bright like a diamond! 💎";
   }
-  var message = "That's not quite right. This might help:<br>";
+  var message = `You guessed ${input}. That's not quite right. This might help:<br>`;
   if (wordGameHints.length > 0) {
     revealedHints += `&bull; ${wordGameHints.pop()}<br>`;
   }
@@ -149,11 +227,13 @@ function rollDie() {
 
 // Guess the Die Roll Game
 function playDiceGame(guess) {
+  // Input validation for the user guess, has to be an integer from 1 to 6 inclusive.
   if (!(guess >= 1 && guess <= 6)) {
     return "Please enter an integer from 1 to 6.";
   }
+
   var dieRoll = rollDie();
-  message = `You rolled ${dieRoll} and guessed ${guess}.<br>`;
+  var message = `You rolled ${dieRoll} and guessed ${guess}.<br>`;
   if (guess == dieRoll) {
     message += `You got it!`;
   } else {
@@ -162,10 +242,20 @@ function playDiceGame(guess) {
   return message;
 }
 
-// Output Message Generator
+/**
+ * ------------------------------------------------------------------------
+ * Output Message Generator for Scissors Paper Stone.
+ * @param   {Number}  userShape     The shape chosen by the user.
+ * @param   {Number}  computerShape The shape chosen by the computer.
+ * @param   {Number}  totalPlays    The total number of plays.
+ * @return  {String}                The outcome for the user.
+ * ------------------------------------------------------------------------
+ */
 function generateOutputMessage(userShape, computerShape, totalPlays) {
   var message = `&#x1F476 VS &#x1F916 <br>`;
   message += `${getEmoji(userShape)} VS ${getEmoji(computerShape)}<br>`;
+
+  // Add on the relevant output message depending on the outcome
   switch (result) {
     case WIN:
       message += `${userName} won! Congrats! &#x1F389`;
@@ -188,7 +278,17 @@ function generateOutputMessage(userShape, computerShape, totalPlays) {
   return message;
 }
 
-// Main
+/**
+ * ------------------------------------------------------------------------
+ * Main
+ * @param   {String}  name      The user name.
+ * @param   {String}  mode      The game chosen by the user.
+ * @param   {Number}  choice    The choice for Scissors Paper Stone.
+ * @param   {String}  input     Guess for Secret Word or Dice Roll.
+ * @return  {String}            The outcome.
+ * ------------------------------------------------------------------------
+ */
+
 function main(name, mode, choice, input) {
   // Set user name if the input is not blank, otherwise use the default value "Player"
   if (name != "") {
