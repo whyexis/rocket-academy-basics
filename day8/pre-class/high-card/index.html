@@ -124,13 +124,7 @@
 
         <!--User Input-->
         <div class="row justify-content-center align-items-center m-4">
-          <div class="col-lg-6 col-md-8 text-center">
-            <form class="text-center" name="input-form">
-              <div class="mb-3">
-                <input type="text" class="form-control text-center" name="input-field" id="input-field"aria-describedby="inputHelp" placeholder="Please enter your input."
-                autocomplete="off"/>
-              </div>
-            </form>
+          <div class="col-lg-6 col-md-8 text-center">            
             <div class="text-center">
               <button class="btn btn-primary btn-lg mt-3" id="submit-button">Launch</button>
             </div>
@@ -158,7 +152,7 @@
         <!--CHANGE DESCRIPTION-->
           <div>
             <p class="fw-bold">High Card</p>
-            <p>A card game where each player draws a random card, and the player with the highest card wins. </p>
+            <p>A card game where each player draws a random card, and the player with the highest card wins. Ace is the smallest. Click "Launch" to start playing.</p>
             <p class="fw-bold">Highest of Two Cards</p>
             <p>Each player draws two cards instead of one. The player with the highest of any of the cards wins.</p>
             <p class="fw-bold">Note</p>
@@ -178,15 +172,11 @@
     <script>
       // Function to process input and show output on screen
       function processInAndOut() {
-        // Get input value and run it through the main function
-        const input = document.getElementById("input-field");
-        var result = main(input.value);
+        // Run main function
+        var result = main();
 
         // Display result in output element
         document.getElementById("output").innerHTML = result;
-
-        // Reset input value
-        input.value = "";
       }
       
       // Submit setup

@@ -335,7 +335,7 @@ function getSuitsEmoji(suit) {
 
 var shuffledDeck = shuffleCards(deck);
 
-function main(input) {
+function main() {
   var computerHand = [];
   var playerHand = [];
 
