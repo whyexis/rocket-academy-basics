@@ -127,8 +127,9 @@
           <div class="col-lg-6 col-md-8 text-center">
             <form class="text-center" name="input-form">
               <div class="mb-3">
-                <input type="text" class="form-control text-center" name="input-field" id="input-field"aria-describedby="inputHelp" placeholder="Please enter your input."
-                autocomplete="off"/>
+                <label for="inputRange" class="form-label">Drag or click the slider to select odd integers from 4 to 30 inclusive.</label>
+                <input type="range" class="form-range" min="4" max="30" step="1" id="inputRange" onchange="updateInput('input-field', this.value)">
+                <input type="number" class="form-control text-center" min="4" max="30" step="1" autocomplete="off" id="input-field" onchange="updateInput('inputRange', this.value)">
               </div>
             </form>
             <div class="text-center">
@@ -172,10 +173,15 @@
     <!--Import App Logic-->
     <script src="script.js"></script>
     <script>
+      // Function to update text box value for slider
+      function updateInput(id, val) {
+          document.getElementById(id).value=val; 
+        }
+      
       // Function to process input and show output on screen
       function processInAndOut() {
         // Get input value and run it through the main function
-        const input = document.getElementById("input-field");
+        const input = document.getElementById("inputRange");
         var result = main(input.value);
 
         // Display result in output element
