@@ -5,9 +5,12 @@
 - [Git Cheat Sheet](#git-cheat-sheet)
 - [Commenting Code](#commenting-code)
   - [Multi Line Comments and JavaScript DocStrings](#multi-line-comments-and-javascript-docstrings)
+- [JavaScript](#javascript)
+  - [Objects Notation - Dot VS Bracket](#objects-notation---dot-vs-bracket)
 - [Web Dev](#web-dev)
   - [BootStrap](#bootstrap)
   - [Script](#script)
+  - [Dark Mode Favicon](#dark-mode-favicon)
   - [JavaScript Console](#javascript-console)
 - [Project - Scissors Paper Stone](#project---scissors-paper-stone)
   - [String Constants and Variables](#string-constants-and-variables)
@@ -47,6 +50,23 @@ function greetUser(name) {
 }
 ```
 
+## JavaScript
+
+### Objects Notation - Dot VS Bracket
+
+[codeburst.io](https://codeburst.io/javascript-quickie-dot-notation-vs-bracket-notation-333641c0f781)
+
+Dot notation is used most frequently. But there are some limitations.
+
+- Property identifies can only be alphanumeric (and \_ and $)
+- Property identifiers cannot start with a number.
+- Property identifiers cannot contain variables.
+
+Brackets
+
+- Property identifiers have to be a String or a variable that references a string
+- Okay to use variables, spaces, and Strings that start with numbers
+
 ## Web Dev
 
 ### BootStrap
@@ -56,6 +76,25 @@ Learnt from [The Net Ninja's YouTube crash course](https://youtube.com/playlist?
 ### Script
 
 TODO: Find out why in HTML \<script\> that imports a JavaScript file cannot run code inside it.
+
+### Dark Mode Favicon
+
+[Flavio Copes](https://flaviocopes.com/dark-mode-favicon/)
+
+For SVG icons, add the following HTML into it.
+
+```html
+<style>
+  path {
+    fill: #ccc;
+  }
+  @media (prefers-color-scheme: dark) {
+    path {
+      fill: #fff;
+    }
+  }
+</style>
+```
 
 ### JavaScript Console
 
@@ -175,6 +214,26 @@ console.log(result); // { name: 'cherries', quantity: 5 }
 
 ### Find Duplicate Values in an Array
 
+[Dev.to - Huy Do](https://dev.to/huyddo/find-duplicate-or-repeat-elements-in-js-array-3cl3)
+
+```js
+const a = [4, 3, 6, 3, 4, 3];
+
+function count_duplicate(array) {
+  let counts = {};
+
+  for (let counter = 0; counter < array.length; counter += 1) {
+    if (counts[array[counter]]) {
+      counts[array[counter]] += 1;
+    } else {
+      counts[array[counter]] = 1;
+    }
+  }
+
+  return counts;
+}
+```
+
 ### Objects
 
 Used objects to represent players in an array to retain their identities to allow players to be displayed in a leaderboard in descending or ascending order.
@@ -183,7 +242,7 @@ Used objects to represent players in an array to retain their identities to allo
 
 [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for...in_statement)
 
-Although JavaScript allows `for...in` statement, it is not recommended to use this to iterate over an array because it will also return user-defined properties or methods of the array.
+Although JavaScript allows `for...in` statement, it is not recommended to use this to iterate over an array because it will also return user-defined properties or methods of the array. Use [`for...of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) instead.
 
 ### Nested For Loops
 
