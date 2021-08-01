@@ -44,71 +44,71 @@ var cardDeck = ["A♦", "2♦", "3♦", "4♦", "5♦"];
 
 <table style="width: 100%">
 <colgroup>
-       <col span="1" style="width: 15%;">
-       <col span="1" style="width: 15%;">
-       <col span="1" style="width: 15%;">
-       <col span="1" style="width: 15%;">
-       <col span="1" style="width: 15%;">
-       <col span="1" style="width: 25%;">
+       <col span="1" style="width: 15%">
+       <col span="1" style="width: 15% text-align: center;">
+       <col span="1" style="width: 15% text-align: center;">
+       <col span="1" style="width: 15% text-align: center;">
+       <col span="1" style="width: 15% text-align: center;">
+       <col span="1" style="width: 25% text-align: center;">
     </colgroup>
 <tbody>
 <thead>
 <tr>
 <td>Code</td>
-<td style="text-align: center;">currentIndex</td>
-<td style="text-align: center;">currentCard</td>
-<td style="text-align: center;">randomIndex</td>
-<td style="text-align: center;">randomCard</td>
-<td style="text-align: center;">cardDeck</td>
+<td>currentIndex</td>
+<td>currentCard</td>
+<td>randomIndex</td>
+<td>randomCard</td>
+<td>cardDeck</td>
 </tr>
 </thead>
 <tr class="odd">
 <td><code>var currentIndex = 0;</code></td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">["A♦", "2♦", "3♦", "4♦", "5♦"]</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>[A♦, 2♦, 3♦, 4♦, 5♦]</td>
 </tr>
 <tr class="even">
 <td><code>var currentCard = cardDeck[currentIndex];</code></td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">"A♦"</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">["A♦", "2♦", "3♦", "4♦", "5♦"]</td>
+<td>0</td>
+<td>A♦</td>
+<td></td>
+<td></td>
+<td>[A♦, 2♦, 3♦, 4♦, 5♦]</td>
 </tr>
 <tr class="odd">
 <td><code>var randomIndex = getRandomIndex(cardDeck.length);</code></td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">"A♦"</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">["A♦", "2♦", "3♦", "4♦", "5♦"]</td>
+<td>0</td>
+<td>A♦</td>
+<td>1</td>
+<td></td>
+<td>[A♦, 2♦, 3♦, 4♦, 5♦]</td>
 </tr>
 <tr class="even">
 <td><code>var randomCard = cardDeck[randomIndex];</code></td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">"A♦"</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">"2♦"</td>
-<td style="text-align: center;">["A♦", "2♦", "3♦", "4♦", "5♦"]</td>
+<td>0</td>
+<td>A♦</td>
+<td>1</td>
+<td>2♦</td>
+<td>[A♦, 2♦, 3♦, 4♦, 5♦]</td>
 </tr>
 <tr class="odd">
 <td><code>cardDeck[currentIndex] = randomCard;</code></td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">"A♦"</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">"2♦"</td>
-<td style="text-align: center;">["2♦", "2♦", "3♦", "4♦", "5♦"]</td>
+<td>0</td>
+<td>A♦</td>
+<td>1</td>
+<td>2♦</td>
+<td>[2♦, 2♦, 3♦, 4♦, 5♦]</td>
 </tr>
 <tr class="even">
 <td><code>cardDeck[randomIndex] = currentCard;</code></td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">"A♦"</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">"2♦"</td>
-<td style="text-align: center;">["2♦", "A♦", "3♦", "A♦", "5♦"]</td>
+<td>0</td>
+<td>A♦</td>
+<td>1</td>
+<td>2♦</td>
+<td>[2♦, A♦, 3♦, A♦, 5♦]</td>
 </tr>
 </tbody>
 </table>
