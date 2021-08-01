@@ -44,13 +44,13 @@ var cardDeck = ["A♦", "2♦", "3♦", "4♦", "5♦"];
 
 <table style="width: 100%">
 <colgroup>
-       <col span="1" style="width: 15%;">
-       <col span="1" style="width: 14%; text-align: center;">
-       <col span="1" style="width: 14%; text-align: center;">
-       <col span="1" style="width: 14%; text-align: center;">
-       <col span="1" style="width: 14%; text-align: center;">
-       <col span="1" style="width: 29%; text-align: center;">
-    </colgroup>
+    <col span="1" style="width: 12%;">
+    <col span="1" style="width: 12%; text-align: center;">
+    <col span="1" style="width: 12%; text-align: center;">
+    <col span="1" style="width: 12%; text-align: center;">
+    <col span="1" style="width: 12%; text-align: center;">
+    <col span="1" style="width: 40%; text-align: center;">
+</colgroup>
 <tbody>
 <thead>
 <tr>
