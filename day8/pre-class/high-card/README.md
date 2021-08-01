@@ -42,7 +42,15 @@ Let's assume that the `randomIndex` generated will be 1 and we are working with 
 var cardDeck = ["A♦", "2♦", "3♦", "4♦", "5♦"];
 ```
 
-<table>
+<table style="width: 100%">
+<colgroup>
+       <col span="1" style="width: 15%;">
+       <col span="1" style="width: 15%;">
+       <col span="1" style="width: 15%;">
+       <col span="1" style="width: 15%;">
+       <col span="1" style="width: 15%;">
+       <col span="1" style="width: 25%;">
+    </colgroup>
 <tbody>
 <thead>
 <tr>
@@ -52,7 +60,6 @@ var cardDeck = ["A♦", "2♦", "3♦", "4♦", "5♦"];
 <td style="text-align: center;">randomIndex</td>
 <td style="text-align: center;">randomCard</td>
 <td style="text-align: center;">cardDeck</td>
-
 </tr>
 </thead>
 <tr class="odd">
@@ -71,7 +78,7 @@ var cardDeck = ["A♦", "2♦", "3♦", "4♦", "5♦"];
 <td style="text-align: center;"></td>
 <td style="text-align: center;">["A♦", "2♦", "3♦", "4♦", "5♦"]</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>var randomIndex = getRandomIndex(cardDeck.length);</code></td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">"A♦"</td>
@@ -87,7 +94,7 @@ var cardDeck = ["A♦", "2♦", "3♦", "4♦", "5♦"];
 <td style="text-align: center;">"2♦"</td>
 <td style="text-align: center;">["A♦", "2♦", "3♦", "4♦", "5♦"]</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>cardDeck[currentIndex] = randomCard;</code></td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">"A♦"</td>
