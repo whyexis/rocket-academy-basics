@@ -10,7 +10,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="icon" href="/rocket-academy-basics/assets/terminal-fill.svg">
+    <link rel="icon" href="/rocket-academy-basics/assets/favicon-96x96.png">
     <style>
       section {
         padding: 60px 0;
@@ -104,7 +104,7 @@
         <div class="text-center">
 
           <!--CHANGE HEADING-->
-          <h1 class="display-4">Dice Within</h1>
+          <h1 class="display-4">Dice Within and 4D</h1>
 
           <p class="lead my-4">
             <!--CHANGE BADGE-->
@@ -127,9 +127,8 @@
           <div class="col-lg-6 col-md-8 text-center">
             <form class="text-center" name="input-form">
               <div class="mb-3">
-                <label for="inputRange" class="form-label">Drag or click the slider to guess the dice roll from 1 to 6.</label>
-                <input type="range" class="form-range" min="1" max="6" step="1" id="inputRange" onchange="updateInput('input-field', this.value)">
-                <input type="number" class="form-control text-center" min="1" max="6" step="1" autocomplete="off" id="input-field" onchange="updateInput('inputRange', this.value)">
+                <label for="input-field" class="form-label">Start with a guess for dice rolls. Guess a 4D when prompted.</label>
+                <input type="number" class="form-control text-center" min="1" max="9999" step="1" autocomplete="off" id="input-field">
               </div>
             </form>
             <div class="text-center">
@@ -160,6 +159,7 @@
           <div>
             <p>Each time the player wins, the computer selects a random number from 1 to 3, called the "within number". If any of the player's guesses fall within the dice roll plus or minus the within number, the player wins.</p>
             <p>For example: the app randomly chooses 3 as the within number. The player can guess within 3 of the dice roll to win the game. The dice roll is 5 and the player guesses 2 which is within 3 of the dice roll so the player wins the game. At this point, the computer adjusts the difficulty of the game by choosing a new within number.</p>
+            <p>Each time the player wins twice in a row, the player can play a round of 4D, where the computer generates a random four digit combination that the player has to guess.</p>
           </div>
         </div>
       </div>
@@ -173,15 +173,11 @@
     <!--Import App Logic-->
     <script src="script.js"></script>
     <script>
-      // Function to update text box value for slider
-      function updateInput(id, val) {
-          document.getElementById(id).value=val; 
-        }
 
       // Function to process input and show output on screen
       function processInAndOut() {
         // Get input value and run it through the main function
-        const input = document.getElementById("inputRange");
+        const input = document.getElementById("input-field");
         var result = main(input.value);
 
         // Display result in output element
