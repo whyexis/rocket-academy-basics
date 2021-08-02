@@ -1,5 +1,8 @@
 # Rocket Academy Basics Course Demo
 
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" style="border-radius: 10px;">
+<img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" style="border-radius: 10px;">
+
 A demo of the apps coded from [Rocket Academy Coding Basics Course](https://www.rocketacademy.co/courses/basics) and a [journal](journal.md) of takeaways.
 
 Over six weeks, the course uses a flipped classroom format that prompts students towards a general direction to figure things out on their own. The course exercises taught coding principles while three assigned projects allowed students to apply their learnings.
