@@ -129,6 +129,7 @@ function myArrayMin(array) {
 
 function main(input) {
   var cardDeck = makeDeck();
+  var wildCard = cardDeck[getRandomIndex(cardDeck.length)];
   var shuffledDeck = shuffleCards(cardDeck);
 
   var numOfCards = input;
@@ -149,7 +150,16 @@ function main(input) {
     message += `${playerHand[i].name} of ${playerHand[i].suitEmoji}<br>`;
   }
 
+  message += `The wild card is ${wildCard.name} of ${wildCard.suitEmoji}.<br>`;
+
   const playerQueen = playerHand.find(({ name }) => name === "Q");
+
+  var doesPlayerHaveWild = false;
+  for (var i = 0; i < numOfCards; i++) {
+    if (playerHand[i] === wildCard) {
+      doesPlayerHaveWild = true;
+    }
+  }
 
   if (playerQueen && computerCard.name == "Q") {
     message += `Computer drew ${computerCard.name} of ${computerCard.suitEmoji}.<br>You drew ${playerCard.name} of ${playerCard.suitEmoji}.<br>It's a draw!`;
@@ -161,9 +171,15 @@ function main(input) {
     return message;
   }
 
+  if (doesPlayerHaveWild) {
+    message += `Computer drew ${computerCard.name} of ${computerCard.suitEmoji}.<br>You drew the wild card.<br>You win!`;
+    return message;
+  }
+
   if (
     computerCard.rank < playerHand[myArrayMin(playerHandRanks)].rank ||
-    computerCard.name == "Q"
+    computerCard.name == "Q" ||
+    computerCard == wildCard
   ) {
     message += `Computer drew ${computerCard.name} of ${
       computerCard.suitEmoji
