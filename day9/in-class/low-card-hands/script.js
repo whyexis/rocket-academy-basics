@@ -15,6 +15,8 @@ const SPADES = "spades";
  * ------------------------------------------------------------------------
  */
 
+var gameMode = "inputWildCard";
+
 /**
  * ------------------------------------------------------------------------
  * Helper Functions
@@ -128,8 +130,18 @@ function myArrayMin(array) {
  */
 
 function main(input) {
+  var wildCard;
+  
+  if (gameMode == "inputWildCard") {    
+    var splittedInput = String(input).split(" ")
+    var wildCardName = splittedInput[0];
+    const cardsWithName = cardDeck.filter(card => {return card.name.includes(wildCardName)})
+    wildCard = cardsWithName.find(({ suit }) => suit === splittedInput[-1])
+    gameMode = "inputNumOfCards"
+
+  }
   var cardDeck = makeDeck();
-  var wildCard = cardDeck[getRandomIndex(cardDeck.length)];
+  // var wildCard = cardDeck[getRandomIndex(cardDeck.length)];
   var shuffledDeck = shuffleCards(cardDeck);
 
   var numOfCards = input;
@@ -148,7 +160,7 @@ function main(input) {
   for (var i = 0; i < numOfCards; i++) {
     playerHandRanks.push(playerHand[i].rank);
     message += `${playerHand[i].name} of ${playerHand[i].suitEmoji}<br>`;
-  }
+  } 
 
   message += `The wild card is ${wildCard.name} of ${wildCard.suitEmoji}.<br>`;
 
