@@ -7,6 +7,8 @@
   - [Multi Line Comments and JavaScript DocStrings](#multi-line-comments-and-javascript-docstrings)
 - [JavaScript](#javascript)
   - [Objects Notation - Dot VS Bracket](#objects-notation---dot-vs-bracket)
+  - [Arrays](#arrays)
+  - [Swap Elements in an Array](#swap-elements-in-an-array)
 - [Web Dev](#web-dev)
   - [BootStrap](#bootstrap)
   - [Script](#script)
@@ -19,7 +21,7 @@
   - [Radio Buttons, Form and Form Data for User Input](#radio-buttons--form-and-form-data-for-user-input)
 - [Project - Beat That](#project---beat-that)
   - [Global Variables](#global-variables)
-  - [Array Max/Min](#array-max-min)
+  - [Array Max Min](#array-max-min)
   - [Array Numeric Sort](#array-numeric-sort)
   - [Array Find Object in Array using Properties](#array-find-object-in-array-using-properties)
   - [Find Duplicate Values in an Array](#find-duplicate-values-in-an-array)
@@ -66,6 +68,25 @@ Brackets
 
 - Property identifiers have to be a String or a variable that references a string
 - Okay to use variables, spaces, and Strings that start with numbers
+
+### Arrays
+
+Assigning a variable to an array creates a pointer to that array. If you need another array to modify separately, use `.slice(0)` method instead.
+
+### Swap Elements in an Array
+
+[Stack Overflow](https://stackoverflow.com/questions/872310/javascript-swap-array-elements)
+
+> This is a clean approach to avoid memory leaks and Don't Repeat Yourself (DRY).
+
+```js
+Array.prototype.swap = function (x,y) {
+  var b = this[x];
+  this[x] = this[y];
+  this[y] = b;
+  return this;
+}
+```
 
 ## Web Dev
 
@@ -150,7 +171,7 @@ var formElements = document.forms["myform"].elements["inputTypeName"].value;
 
 Do not use global variables as parameters for functions. Call the global variable within the function because when you want to update the global variable and it is used as a parameter in a function, the update only happens within the function.
 
-### Array Max/Min
+### Array Max Min
 
 [w3schools](https://www.w3schools.com/js/js_array_sort.asp)
 
