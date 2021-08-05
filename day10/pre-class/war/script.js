@@ -8,14 +8,10 @@ const HEARTS = "hearts";
 const DIAMONDS = "diamonds";
 const CLUBS = "clubs";
 const SPADES = "spades";
-const PLAYER_1 = "Player 1️⃣";
-const PLAYER_2 = "Player 2️⃣";
-
-/**
- * ------------------------------------------------------------------------
- * Global Variables
- * ------------------------------------------------------------------------
- */
+const PLAYER_1 = "Player 1";
+const PLAYER_2 = "Player 2";
+const COLOUR_1 = "#1357BE";
+const COLOUR_2 = "#68221F";
 
 /**
  * ------------------------------------------------------------------------
@@ -90,15 +86,155 @@ function makeDeck() {
   return cardDeck;
 }
 
+// Get a random index ranging from 0 (inclusive) to max (exclusive).
+var getRandomIndex = function (max) {
+  return Math.floor(Math.random() * max);
+};
+
+// Shuffle the elements in the cardDeck array
+var shuffleCards = function (cardDeck) {
+  // Loop over the card deck array once
+  var currentIndex = 0;
+  while (currentIndex < cardDeck.length) {
+    // Select a random index in the deck
+    var randomIndex = getRandomIndex(cardDeck.length);
+    // Select the card that corresponds to randomIndex
+    var randomCard = cardDeck[randomIndex];
+    // Select the card that corresponds to currentIndex
+    var currentCard = cardDeck[currentIndex];
+    // Swap positions of randomCard and currentCard in the deck
+    cardDeck[currentIndex] = randomCard;
+    cardDeck[randomIndex] = currentCard;
+    // Increment currentIndex
+    currentIndex = currentIndex + 1;
+  }
+  // Return the shuffled deck
+  return cardDeck;
+};
+
+function generateRoundResults(roundCount, winner, loser, winCard, lossCard) {
+  var colour = COLOUR_1;
+  if (winner == PLAYER_2) {
+    colour = COLOUR_2;
+  }
+  return `<div style="border-radius:5px; background-color:${colour}; padding: 0.25em 2em;"><b><u>Round ${roundCount}</u></b></div><br>${winner} drew ${winCard.name} ${winCard.emoji} and ${loser} drew ${lossCard.name} ${lossCard.emoji}.<br>${winner} wins this round!<br><br>`;
+}
+
+function generateWarResults(
+  roundCount,
+  winner,
+  loser,
+  winCard,
+  lossCard,
+  numOfCards
+) {
+  var colour = COLOUR_1;
+  if (winner == PLAYER_2) {
+    colour = COLOUR_2;
+  }
+  return `<div style="border-radius:5px; background-color:${colour}; padding: 0.25em 2em;"><b><u>Round ${roundCount}</u></b></div><br>There is a WAR!.<br>${winner} drew ${winCard.name} ${winCard.emoji} and ${loser} drew ${lossCard.name} ${lossCard.emoji}.<br>${winner} wins this round and ${numOfCards} cards in total!<br><br>`;
+}
+
+function playGame(stack1, stack2) {
+  var output = `<b><u>Legend</u></b><br><br><div style="border-radius:5px; background-color:${COLOUR_1}; padding: 0.25em 2em;"><b>Player 1 won.<b></div><br><div style="border-radius:5px; background-color:${COLOUR_2}; padding: 0.25em 2em;"><b>Player 2 won.</b></div><br><br>`;
+  var roundCounter = 1;
+  while (stack1.length != 0 && stack2.length != 0) {
+    // Battle
+    var card1 = stack1.pop();
+    var card2 = stack2.pop();
+
+    if (card1.rank > card2.rank) {
+      stack1.unshift(card1, card2);
+      output += generateRoundResults(
+        roundCounter,
+        PLAYER_1,
+        PLAYER_2,
+        card1,
+        card2
+      );
+    } else if (card2.rank > card1.rank) {
+      stack2.unshift(card2, card1);
+      output += generateRoundResults(
+        roundCounter,
+        PLAYER_2,
+        PLAYER_1,
+        card2,
+        card1
+      );
+    } else {
+      // War when there is a draw
+      var warArray = [card1, card2];
+      var areCardsEqual = true;
+
+      while (areCardsEqual && stack1.length >= 4 && stack2.length >= 4) {
+        for (var warCounter = 0; warCounter < 3; warCounter += 1) {
+          warArray.push(stack1.pop());
+          warArray.push(stack2.pop());
+        }
+
+        var warCard1 = stack1.pop();
+        var warCard2 = stack2.pop();
+
+        if (warCard1.rank > warCard2.rank) {
+          areCardsEqual = false;
+          warArray.push(warCard1, warCard2);
+          warArray.forEach((element) => stack1.unshift(element));
+          output += generateWarResults(
+            roundCounter,
+            PLAYER_1,
+            PLAYER_2,
+            warCard1,
+            warCard2,
+            warArray.length
+          );
+        } else if (warCard2.rank > warCard1.rank) {
+          areCardsEqual = false;
+          warArray.push(warCard1, warCard2);
+          warArray.forEach((element) => stack2.unshift(element));
+          output += generateWarResults(
+            roundCounter,
+            PLAYER_2,
+            PLAYER_1,
+            warCard2,
+            warCard1,
+            warArray.length
+          );
+        }
+      }
+      if (areCardsEqual) {
+        break;
+      }
+    }
+    roundCounter += 1;
+  }
+  console.log("stack 1", stack1);
+  console.log("stack 2", stack2);
+
+  var winner = PLAYER_1;
+  if (stack1.length < stack2.length) {
+    winner = PLAYER_2;
+  }
+
+  var summary = `👑 After ${roundCounter} exciting rounds, ${winner} is the ultimate winner! 👑<br><br>`;
+  output = summary + output;
+
+  return output;
+}
+
 /**
  * ------------------------------------------------------------------------
  * Main
  * ------------------------------------------------------------------------
  */
 
-function main(input) {
-  var output = "Hello World";
-  return output;
+function main() {
+  var deck = makeDeck();
+  var shuffledDeck = shuffleCards(deck);
+
+  player1Stack = shuffledDeck.splice(0, 26);
+  player2Stack = shuffledDeck.splice(0);
+
+  return playGame(player1Stack, player2Stack);
 }
 
 /* Pseudocode
