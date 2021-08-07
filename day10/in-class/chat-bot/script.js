@@ -1,67 +1,45 @@
 /**
  * ------------------------------------------------------------------------
- * Constants
- * ------------------------------------------------------------------------
- */
-
-/**
- * ------------------------------------------------------------------------
  * Global Variables
  * ------------------------------------------------------------------------
  */
 
 var questionId = "greeting";
 var userName = "";
-var userAge;
+var age;
 
-// var questionAndAnswerSets = [
-//   {
-//     question: "I'm Robocop. What's your name?",
-//   },
-//   {
-//     answers: {
-//       ageGroup1: "That's very young!",
-//       ageGroup2: "Work hard, play hard!",
-//       ageGroup3: "What a wise age!",
-//     },
-//   },
-//   {
-//     question: `wow you seem happy today! Have you been coding? (yes/no/maybe)`,
-//     answers: {
-//       yes: `Wow! Me too! I've been working on the Blackjack project. Makes my day!`,
-//       no: "Oh ok, just normally happy ;)",
-//       maybe: "It seems the very thought of coding makes people happy!",
-//     },
-//   },
-//   {
-//     question: `do you enjoy coding most during the day, night, or both? (day/night/both)`,
-//     answers: {
-//       day: "Ah yes, when the sun is high in the sky, I can feel its energy too.",
-//       night: "Under the calm and gentle moon, I also find my focus.",
-//       both: "Indeed, I could code 24/7 if I didn't have to sleep!",
-//     },
-//   },
-// ];
-
-var questionAndAnswerSets = {
+var qASets = {
   greeting: {
-    question: "I'm Robocop. What's your name?",
+    question: "Hey there, I'm Robocop. What's your name?",
+    answers: "What a cool name!",
+    nextQuestionId: "userAge",
+  },
+  userAge: {
+    question: "How old are you?",
     answers: {
-      ageGroup1: "That's very young!",
-      ageGroup2: "Work hard, play hard!",
+      ageGroup1: "Make the best out of your youth!",
+      ageGroup2: "Adulting is never easy, work hard, play hard!",
       ageGroup3: "What a wise age!",
     },
     nextQuestionId: "hasBeenCoding",
   },
   hasBeenCoding: {
-    question:
-      "Hey, wow you seem happy today! Have you been coding? (yes/no/maybe)",
+    question: "Wow you seem happy today! Have you been coding? (yes/no/maybe)",
     answers: {
-      yes: `Wow! Me too! I've been working on the Blackjack project. Makes my day!`,
-      no: "Oh ok, just normally happy ;)",
-      maybe: "It seems the very thought of coding makes people happy!",
+      yes: {
+        response:
+          "Wow! Me too! I've been working on the Blackjack project. Makes my day!",
+        nextQuestionId: "timeOfDay",
+      },
+      no: {
+        response: "Oh ok, just normally happy ;)",
+        nextQuestionId: "happiness",
+      },
+      maybe: {
+        response: "It seems the very thought of coding makes people happy!",
+        nextQuestionId: "happiness",
+      },
     },
-    nextQuestionId: "timeOfDay",
   },
   timeOfDay: {
     question:
@@ -81,13 +59,15 @@ var questionAndAnswerSets = {
     },
     nextQuestionId: "hasBeenCoding",
   },
+  happiness: {
+    question: "Do arrays or objects make you happier? (arrays/objects)",
+    answers: {
+      arrays: "I knew it, arrays are my favourite too.",
+      objects: "You're good at coding- objects are hard!",
+    },
+    nextQuestionId: "timeOfDay",
+  },
 };
-
-/**
- * ------------------------------------------------------------------------
- * Helper Functions
- * ------------------------------------------------------------------------
- */
 
 /**
  * ------------------------------------------------------------------------
@@ -96,35 +76,47 @@ var questionAndAnswerSets = {
  */
 
 function main(input) {
+  if (input == "" && questionId == "greeting") {
+    return qASets[questionId].question;
+  }
+
+  var nextQuestion = qASets[questionId].nextQuestionId;
+
   if (input != "" && questionId == "greeting") {
     userName = input;
-    questionId = "hasBeenCoding";
-    return `${userName}! what a cool name. How old are you?`;
+    responseText = `Hey ${userName}! ${qASets[questionId].answers}<br><br>${qASets[nextQuestion].question}`;
+    questionId = qASets[questionId].nextQuestionId;
+    return responseText;
   }
 
-  if (input == "") {
-    return `${questionAndAnswerSets[questionId].question}`;
-  }
-
-  var nextQuestion = questionAndAnswerSets[questionId].nextQuestionId;
-  var responseText = `Hey ${userName}, ${questionAndAnswerSets[questionId]["answers"][input]}<br><br>${questionAndAnswerSets[nextQuestion].question}`;
-
-  if (questionId == "hasBeenCoding") {
+  if (questionId == "userAge") {
     userAge = input;
+    var ageGroup;
     if (input < 20) {
-      responseText = `${questionAndAnswerSets.greeting.answers.ageGroup1}<br><br>${questionAndAnswerSets[nextQuestion].question}`;
+      ageGroup = "ageGroup1";
     }
 
     if (input >= 20 && input < 60) {
-      responseText = `${questionAndAnswerSets.greeting.answers.ageGroup2}<br><br>${questionAndAnswerSets[nextQuestion].question}`;
+      ageGroup = "ageGroup2";
     }
 
     if (input >= 60) {
-      responseText = `${questionAndAnswerSets.greeting.answers.ageGroup3}<br><br>${questionAndAnswerSets[nextQuestion].question}`;
+      ageGroup = "ageGroup3";
     }
+    responseText = `Hey ${userName}! ${qASets[questionId].answers[ageGroup]}
+    <br><br>${qASets[qASets[questionId].nextQuestionId].question}`;
+    questionId = qASets[questionId].nextQuestionId;
+    return responseText;
   }
 
-  questionId = questionAndAnswerSets[questionId].nextQuestionId;
+  if (questionId == "hasBeenCoding") {
+    var nestedQuestion = qASets[questionId].answers[input].nextQuestionId;
+    responseText = `Hey ${userName}, ${qASets[questionId].answers[input].response}<br><br>${qASets[nestedQuestion].question}`;
+    questionId = nestedQuestion;
+    return responseText;
+  }
 
+  var responseText = `Hey ${userName}. ${qASets[questionId].answers[input]}<br><br>${qASets[nextQuestion].question}`;
+  questionId = nextQuestion;
   return responseText;
 }
