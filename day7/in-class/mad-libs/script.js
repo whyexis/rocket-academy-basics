@@ -48,6 +48,9 @@ function main(input) {
     return madLib;
   }
 
-  wordsArray.push(input);
-  return `The adjective ${input} has been saved.`;
+  var adjectives = input.split(" "); // adjective = ['green','nice','silly']
+  for (word in adjectives) {
+    wordsArray.push(adjectives[word]);
+  }
+  return `The adjective ${adjectives} has been saved.`;
 }
