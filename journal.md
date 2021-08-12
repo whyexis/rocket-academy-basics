@@ -2,7 +2,11 @@
 
 ## Table of Contents
 
-- [Git Cheat Sheet](#git-cheat-sheet)
+- [Git](#git)
+  - [Cheat Sheet](#cheat-sheet)
+  - [GitHub](#github)
+  - [Collaboration on GitHub](#collaboration-on-github)
+  - [Fork and Contribute](#fork-and-contribute)
 - [Commenting Code](#commenting-code)
   - [Multi Line Comments and JavaScript DocStrings](#multi-line-comments-and-javascript-docstrings)
 - [JavaScript](#javascript)
@@ -29,8 +33,101 @@
   - [For Loops](#for-loops)
   - [Nested For Loops](#nested-for-loops)
 - [Project - Blackjack](#project---blackjack)
+  - [Sum of Values in Object Array with reduce](#sum-of-values-in-object-array-with-reduce)
+  - [Classes](#classes)
+  - [DOM](#dom)
+  - [Object - Program Flow](#object---program-flow)
+  - [Docstrings](#docstrings)
 
-## Git Cheat Sheet
+## Git
+
+[[YouTube The Net Ninja] Git & GitHub Tutorial for Beginners](https://youtube.com/playlist?list=PL4cUxeGkcC9goXbgTDQ0n_4TBzOO0ocPR)
+
+### Cheat Sheet
+
+```bash
+# Create a local repo
+git init
+
+# Stage a file for commit
+git add <file>
+
+# Commit the changes
+git commit -m "<describe the changes>"
+
+# See the history
+git log --oneline # Shows one line
+
+# Undoing Things, from safest to most unsafe
+
+## Checkout
+## Show code at this point of time
+git checkout <commit>
+
+## Revert
+## Undo changes done at a commit
+git revert <commit>
+
+## Reset commit
+## Take the project to a particular commit
+git reset <commit>
+git reset <commit> --hard
+
+# Branching
+git branch <feature> # Create new branch
+git branch -a # Show all branches
+git checkout <branch> # Switch to branch
+git branch -d <branch> # Delete branch if it is merged
+git branch -D <branch> # Force delete branch
+git checkout -b <branch> # Creates new branch and switches to it
+
+# Merging Branches
+git merge <branch>
+
+## Conflicts
+## Choose the changes to keep in the files
+## Stage and commit but without need for message
+
+# GitHub Setup
+## Push commits to the remote repo on GitHub
+git push <GitHub URL> <branch>
+
+## Set up alias for GitHub URL
+git remote add origin <GitHub URL>
+
+## Clone remote repo to local repo
+git clone <GitHub URL>
+
+# Collaboration
+## Get changes from the remote repo
+git pull origin master
+```
+
+### GitHub
+
+Two ways of setting up the remote repo.
+
+1. Create a local repo before getting it onto GitHub
+1. Create repo on GitHub before cloning it onto your computer (recommended)
+
+### Collaboration on GitHub
+
+Recommended workflow.
+
+1. `git pull` Update the master branch and get the most recent changes
+1. `git checkout -b <branch>` Create a new branch and work on new feature or update.
+1. Push the branch onto GitHub.
+1. Create a pull request to merge.
+1. Merge pull request to master branch.
+
+### Fork and Contribute
+
+1. Fork (copy) the repo that you want to contribute to.
+1. Clone the repo to your computer before working on it.
+1. Push the changes onto GitHub.
+1. Submit a pull request for owner to accept.
+
+Most open source projects have a markdown file with guidelines for contributors to follow.
 
 ## Commenting Code
 
@@ -161,7 +258,7 @@ function mod(n, m) {
 
 Implemented [radio buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) for user input which removes the need for input validation and a user can select the game modes and shape to play instead of typing in text inputs. Worked with forms and [accessing form values](https://stackoverflow.com/questions/18606305/accessing-formdata-values).
 
-```javascript
+```js
 var formElements = document.forms["myform"].elements["inputTypeName"].value;
 ```
 
@@ -177,7 +274,7 @@ Do not use global variables as parameters for functions. Call the global variabl
 
 JavaScript does not have built in functions for finding the max or min value in an array, but `Math.max()` can return the max value of an array through the following function.
 
-```javascript
+```js
 function myArrayMax(array) {
   return Math.max.apply(null, array);
 }
@@ -189,7 +286,7 @@ function myArrayMax(array) {
 
 For numeric sort, create a compare function within the sort method.
 
-```javascript
+```js
 let numbers = [4, 2, 5, 1, 3];
 numbers.sort((a, b) => a - b);
 ```
@@ -271,17 +368,175 @@ Ensure that the counter variables have different names.
 
 ## Project - Blackjack
 
-### Sum of Values in Object Array with reduce()
+### Sum of Values in Object Array with reduce
 
 [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce#sum_of_values_in_an_object_array)
 
 The reduce() method executes a reducer function, provided by the programmer, on each element of the array, resulting in a single output value.
 
 ```js
-let initialValue = 0
-let sum = [{x: 1}, {x: 2}, {x: 3}].reduce(function (accumulator, currentValue) {
-    return accumulator + currentValue.x
-}, initialValue)
+let initialValue = 0;
+let sum = [{ x: 1 }, { x: 2 }, { x: 3 }].reduce(function (
+  accumulator,
+  currentValue
+) {
+  return accumulator + currentValue.x;
+},
+initialValue);
 
-console.log(sum) // logs 6
+console.log(sum); // logs 6
+```
+
+### Classes
+
+- A class is a template for creating new objects.
+- A subclass inherits the properties and methods of the parent class.
+- For a subclass that extends a class, the constructor needs to start with `super()`
+
+### DOM
+
+[[W3 Schools] Create Element](https://www.w3schools.com/jsref/met_document_createelement.asp)
+
+```js
+var btn = document.createElement("BUTTON"); // Create a <button> element
+btn.innerHTML = "CLICK ME"; // Insert text
+```
+
+[[W3 Schools] Element Attributes](https://www.w3schools.com/jsref/met_document_createattribute.asp)
+
+```js
+var h1 = document.getElementsByTagName("H1")[0]; // Get the first <h1> element in the document
+var att = document.createAttribute("class"); // Create a "class" attribute
+att.value = "democlass"; // Set the value of the class attribute
+h1.setAttributeNode(att); // Add the class attribute to <h1>
+```
+
+### Object - Program Flow
+
+Used an object to control the program flow through the object's properties and methods along with a global variable. This keeps the main function clean and simple.
+
+```js
+const gameplay = {
+  inputPlayers: {
+    execute(input) {
+      //...
+      gameMode = INPUT_NAMES;
+      // ...
+    },
+  },
+  inputNames: {
+    execute(input) {
+      // ...
+      gameMode = INPUT_BETS;
+      // ...
+    },
+  },
+  inputBets: {
+    execute(input) {
+      // ...
+      gameMode = BLACKJACK;
+      // ...
+    },
+  },
+  blackjack: {
+    execute(input) {
+      // ...
+      gameMode = INPUT_BETS;
+      // ...
+    },
+  },
+};
+
+function main(input) {
+  return gameplay[gameMode].execute(input);
+}
+```
+
+### Docstrings
+
+[[JSDoc] Optional Parameters and Default Values](https://jsdoc.app/tags-param.html)
+
+Surround the parameter name with square brackets and assign it to the default value.
+
+```js
+/**
+ * @param {string} [somebody=John Doe] - Somebody's name.
+ */
+function sayHello(somebody) {
+  if (!somebody) {
+    somebody = "John Doe";
+  }
+  alert("Hello " + somebody);
+}
+```
+
+[[JSDoc] Classes](https://jsdoc.app/howto-es2015-classes.html)
+
+Documenting a simple class.
+
+```js
+/** Class representing a point. */
+class Point {
+  /**
+   * Create a point.
+   * @param {number} x - The x value.
+   * @param {number} y - The y value.
+   */
+  constructor(x, y) {
+    // ...
+  }
+
+  /**
+   * Get the x value.
+   * @return {number} The x value.
+   */
+  getX() {
+    // ...
+  }
+
+  /**
+   * Get the y value.
+   * @return {number} The y value.
+   */
+  getY() {
+    // ...
+  }
+
+  /**
+   * Convert a string containing two comma-separated numbers into a point.
+   * @param {string} str - The string containing two comma-separated numbers.
+   * @return {Point} A Point object.
+   */
+  static fromString(str) {
+    // ...
+  }
+}
+```
+
+Extending a class. `@extends` informs JSDoc which class you are extending.
+
+```js
+/**
+ * Class representing a dot.
+ * @extends Point
+ */
+class Dot extends Point {
+  /**
+   * Create a dot.
+   * @param {number} x - The x value.
+   * @param {number} y - The y value.
+   * @param {number} width - The width of the dot, in pixels.
+   */
+  constructor(x, y, width) {
+    // ...
+  }
+
+  /**
+   * Get the dot's width.
+   * @return {number} The dot's width, in pixels.
+   */
+  getWidth() {
+    // ...
+  }
+}
 ```
