@@ -191,7 +191,8 @@
     <script src="script.js"></script>
     <script>
       // Function to process input and show output on screen
-      function processInAndOut() {
+      function processInAndOut(event) {
+        event.preventDefault()
         // Get input value and run it through the main function
         const input = document.getElementById("input-field");
         var result = main(input.value);
@@ -205,7 +206,7 @@
       
       // Submit setup
       const button = document.getElementById("submit-button");
-      button.addEventListener("click", processInAndOut);
+      button.addEventListener("submit", processInAndOut);
       console.log(`%c
          /\\
         |==|
