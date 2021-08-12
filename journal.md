@@ -80,12 +80,12 @@ Assigning a variable to an array creates a pointer to that array. If you need an
 > This is a clean approach to avoid memory leaks and Don't Repeat Yourself (DRY).
 
 ```js
-Array.prototype.swap = function (x,y) {
+Array.prototype.swap = function (x, y) {
   var b = this[x];
   this[x] = this[y];
   this[y] = b;
   return this;
-}
+};
 ```
 
 ## Web Dev
@@ -270,3 +270,18 @@ Although JavaScript allows `for...in` statement, it is not recommended to use th
 Ensure that the counter variables have different names.
 
 ## Project - Blackjack
+
+### Sum of Values in Object Array with reduce()
+
+[MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce#sum_of_values_in_an_object_array)
+
+The reduce() method executes a reducer function, provided by the programmer, on each element of the array, resulting in a single output value.
+
+```js
+let initialValue = 0
+let sum = [{x: 1}, {x: 2}, {x: 3}].reduce(function (accumulator, currentValue) {
+    return accumulator + currentValue.x
+}, initialValue)
+
+console.log(sum) // logs 6
+```
