@@ -117,7 +117,7 @@ function generateRoundResults(roundCount, winner, loser, winCard, lossCard) {
   if (winner == PLAYER_2) {
     colour = COLOUR_2;
   }
-  return `<div style="border-radius:5px; background-color:${colour}; padding: 0.25em 2em;"><b><u>Round ${roundCount}</u></b></div><br>${winner} drew ${winCard.name} ${winCard.emoji} and ${loser} drew ${lossCard.name} ${lossCard.emoji}.<br>${winner} wins this round!<br><br>`;
+  return `<div class="fw-bold" style="display: inline-block; border-radius:5px; background-color:${colour}; padding: 0.25em 2em;"><b><u>Round ${roundCount}</u></b></div><br>${winner} drew ${winCard.name} ${winCard.emoji} and ${loser} drew ${lossCard.name} ${lossCard.emoji}.<br>${winner} wins this round!<br><br>`;
 }
 
 function generateWarResults(
@@ -132,11 +132,11 @@ function generateWarResults(
   if (winner == PLAYER_2) {
     colour = COLOUR_2;
   }
-  return `<div style="border-radius:5px; background-color:${colour}; padding: 0.25em 2em;"><b><u>Round ${roundCount}</u></b></div><br>There is a WAR!.<br>${winner} drew ${winCard.name} ${winCard.emoji} and ${loser} drew ${lossCard.name} ${lossCard.emoji}.<br>${winner} wins this round and ${numOfCards} cards in total!<br><br>`;
+  return `<div class="fw-bold" style="display: inline-block; border-radius:5px; background-color:${colour}; padding: 0.25em 2em;"><b><u>Round ${roundCount}</u></b></div><br>There is a WAR!.<br>${winner} drew ${winCard.name} ${winCard.emoji} and ${loser} drew ${lossCard.name} ${lossCard.emoji}.<br>${winner} wins this round and ${numOfCards} cards in total!<br><br>`;
 }
 
 function playGame(stack1, stack2) {
-  var output = `<b><u>Legend</u></b><br><br><div style="border-radius:5px; background-color:${COLOUR_1}; padding: 0.25em 2em;"><b>Player 1 won.<b></div><br><div style="border-radius:5px; background-color:${COLOUR_2}; padding: 0.25em 2em;"><b>Player 2 won.</b></div><br><br>`;
+  var output = `<b><u>Legend</u></b><br><br><div class="fw-bold" style="display: inline-block; border-radius:5px; background-color:${COLOUR_1}; padding: 0.25em 2em;"><b>Player 1 won.<b></div><br><div class="fw-bold" style="display: inline-block; border-radius:5px; background-color:${COLOUR_2}; padding: 0.25em 2em;"><b>Player 2 won.</b></div><br><br>`;
   var roundCounter = 1;
   while (stack1.length != 0 && stack2.length != 0) {
     // Battle

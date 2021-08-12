@@ -128,7 +128,7 @@
         <!--User Input-->
         <div class="row justify-content-center align-items-center m-4">
           <div class="col-lg-6 col-md-8 text-center">
-            <form class="text-center" name="input-form" onsubmit="return processInAndOut()">
+            <form class="text-center" name="input-form" onsubmit="return processInAndOut(event)">
               <div class="mb-3">
                 <input type="text" class="form-control text-center" name="input-field" id="input-field"aria-describedby="inputHelp" placeholder="Please enter your input."
                 autocomplete="off"/>
@@ -197,7 +197,7 @@
     <script src="script.js"></script>
     <script>
       // Function to process input and show output on screen
-      function processInAndOut() {
+      function processInAndOut(event) {
         event.preventDefault();
         // Get input value and run it through the main function
         const input = document.getElementById("input-field");
@@ -212,7 +212,7 @@
       
       // Submit setup
       const button = document.getElementById("submit-button");
-      button.addEventListener("submit", processInAndOut());
+      button.addEventListener("submit", processInAndOut);
       console.log(`%c
          /\\
         |==|

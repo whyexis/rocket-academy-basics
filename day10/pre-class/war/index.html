@@ -171,7 +171,8 @@
     <script src="script.js"></script>
     <script>
       // Function to process input and show output on screen
-      function processInAndOut() {
+      function processInAndOut(event) {
+        event.preventDefault()
         event.preventDefault();
         // Get input value and run it through the main function
         var result = main();
