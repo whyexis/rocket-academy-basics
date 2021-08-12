@@ -131,21 +131,31 @@ function shuffleDeck() {
 
 /**
  * ------------------------------------------------------------------------
- * Template for player objects.
- * @param  {String}  id        The player's id.
- * @param  {String}  name      The player's name.
+ * Class to represent a player.
  * ------------------------------------------------------------------------
  */
-
 class Player {
   id = 0;
   name = "";
   points = 100;
+  /**
+   * ------------------------------------------------------------------------
+   * Create a player.
+   * @param  {String}  id    - The player's id.
+   * @param  {String}  name  - The player's name.
+   * ------------------------------------------------------------------------
+   */
   constructor(id, name) {
     this.id = id;
     this.name = name;
   }
 
+  /**
+   * ------------------------------------------------------------------------
+   * Get the player's name and points.
+   * @returns  {String}  The player's name and points
+   * ------------------------------------------------------------------------
+   */
   get showPlayer() {
     return `${this.name}<br>
     Points: ${this.points}`;
@@ -154,12 +164,7 @@ class Player {
 
 /**
  * ------------------------------------------------------------------------
- * Template for hand objects.
- * @param  {String}  playerId           The player's id.
- * @param  {String}  playerName         The player's name.
- * @param  {Number}  [bet=0]          The player's bet.
- * @param  {Boolean} [isSplit=false]  Determine if a hand is split.
- * @param  {Number}  [handId=1]       For split hands.
+ * Class to represent a hand.
  * ------------------------------------------------------------------------
  */
 
@@ -170,6 +175,16 @@ class Hand {
   hasBust = false;
   hasWon = false;
   hasDrew = false;
+  /**
+   * ------------------------------------------------------------------------
+   * Create a hand.
+   * @param  {String}  playerId         - The player's id.
+   * @param  {String}  playerName       - The player's name.
+   * @param  {Number}  [bet=0]          - The player's bet.
+   * @param  {Boolean} [isSplit=false]  - Determine if a hand is split.
+   * @param  {Number}  [handId=1]       - For split hands.
+   * ------------------------------------------------------------------------
+   */
   constructor(playerId, playerName, bet = 0, isSplit = false, handId = 1) {
     this.playerId = playerId;
     this.playerName = playerName;
@@ -222,7 +237,7 @@ class Hand {
 
   /**
    * ------------------------------------------------------------------------
-   * Displays all cards in the player's hand.
+   * Displays all cards in the player's hand and the sum of their value.
    * @return {String} output
    * ------------------------------------------------------------------------
    */
@@ -285,6 +300,7 @@ class Hand {
   /**
    * ------------------------------------------------------------------------
    * Evaluates the player's hand and update the points.
+   * @returns   {String}    Player's hand results VS the Dealer.
    * ------------------------------------------------------------------------
    */
 
@@ -341,6 +357,7 @@ class Hand {
     this.updatePoints;
     return output;
   }
+
   /**
    * ------------------------------------------------------------------------
    * Update player's points based on the hand's result.
@@ -365,13 +382,28 @@ class Hand {
 ////////////////////// End of Hand Class //////////////////////
 ///////////////////////////////////////////////////////////////
 
+/**
+ * ------------------------------------------------------------------------
+ * Class to represent a dealer.
+ * @extends Hand
+ * ------------------------------------------------------------------------
+ */
 class Dealer extends Hand {
+  /**
+   * ------------------------------------------------------------------------
+   * Creates a dealer.
+   * @param   {Number}    [id = 0]            - Dealer ID
+   * @param   {String}    [name = "Dealer"]   - Dealer
+   * ------------------------------------------------------------------------
+   */
+
   constructor() {
     super(0, "Dealer");
   }
+
   /**
    * ------------------------------------------------------------------------
-   * Dealer hits if the hand value is below 17.
+   * Dealer hits if the hand value is below 17, stands otherwise.
    * ------------------------------------------------------------------------
    */
 
@@ -386,7 +418,7 @@ class Dealer extends Hand {
   /**
    * ------------------------------------------------------------------------
    * Evaluate Dealer's hand.
-   * @return {String}
+   * @return {String}   output    - The result and what players can expect.
    * ------------------------------------------------------------------------
    */
 
@@ -770,6 +802,7 @@ const gameplay = {
 /**
  * ------------------------------------------------------------------------
  * Main
+ * @returns   {String}    The output from the different phases of the game.
  * ------------------------------------------------------------------------
  */
 
