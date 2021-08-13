@@ -127,6 +127,7 @@
         <div class="row justify-content-center align-items-center m-4">
           <div class="col-lg-6 col-md-8 text-center">            
             <div class="text-center">
+              <p>Click "Launch" to start playing High Card.</p>
               <button class="btn btn-primary btn-lg mt-3" id="submit-button">Launch</button>
             </div>
             
@@ -153,7 +154,7 @@
         <!--CHANGE DESCRIPTION-->
           <div>
             <p class="fw-bold">High Card</p>
-            <p>A card game where each player draws a random card, and the player with the highest card wins. Ace is the smallest. Click "Launch" to start playing.</p>
+            <p>A card game where each player draws a random card, and the player with the highest card wins. Ace is the smallest.</p>
             <p class="fw-bold">Highest of Two Cards</p>
             <p>Each player draws two cards instead of one. The player with the highest of any of the cards wins.</p>
             <p class="fw-bold">Note</p>
@@ -172,7 +173,8 @@
     <script src="script.js"></script>
     <script>
       // Function to process input and show output on screen
-      function processInAndOut() {
+      function processInAndOut(event) {
+        event.preventDefault()
         // Run main function
         var result = main();
 
@@ -182,7 +184,7 @@
       
       // Submit setup
       const button = document.getElementById("submit-button");
-      button.addEventListener("click", processInAndOut);
+      button.addEventListener("submit", processInAndOut);
       console.log(`%c
          /\\
         |==|
