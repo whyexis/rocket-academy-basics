@@ -127,6 +127,7 @@
         <div class="row justify-content-center align-items-center m-4">
           <div class="col-lg-6 col-md-8 text-center">
             <div class="text-center">
+              <label for="submit-button">Click the button to see a card deck.</label>
               <button class="btn btn-primary btn-lg mt-3" id="submit-button">Launch</button>
             </div>
             
@@ -167,7 +168,8 @@
     <script src="script.js"></script>
     <script>
       // Function to process input and show output on screen
-      function processInAndOut() {
+      function processInAndOut(event) {
+        event.preventDefault();
         // Get input value and run it through the main function
         var result = main();
 
@@ -180,7 +182,7 @@
       
       // Submit setup
       const button = document.getElementById("submit-button");
-      button.addEventListener("click", processInAndOut);
+      button.addEventListener("submit", processInAndOut);
       console.log(`%c
          /\\
         |==|
