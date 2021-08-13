@@ -128,7 +128,7 @@
         <!--User Input-->
         <div class="row justify-content-center align-items-center m-4">
           <div class="col-lg-6 col-md-8 text-center">
-            <form class="text-center" name="input-form">
+            <form class="text-center" name="input-form" onsubmit="return processInAndOut(event)">
               <div class="mb-3">
                 <select class="form-select-position-center p-2" id="guess-word" aria-label="Guess the secret word.">
                   <option value="" selected>Please guess the secret word.</option>
@@ -137,11 +137,8 @@
                   <option value="faucet">faucet</option>
                 </select>
               </div>
-            </form>
-            <div class="text-center">
               <button class="btn btn-primary btn-lg mt-3" id="submit-button">Launch</button>
-            </div>
-            
+            </form>
           </div>
         </div>
 
@@ -206,7 +203,8 @@
     <script src="script.js"></script>
     <script>
       // Function to process input and show output on screen
-      function processInAndOut() {
+      function processInAndOut(event) {
+        event.preventDefault()
         // Get input value and run it through the main function
         const input = document.getElementById("guess-word");
         var result = main(input.value);
@@ -220,7 +218,7 @@
       
       // Submit setup
       const button = document.getElementById("submit-button");
-      button.addEventListener("click", processInAndOut);
+      button.addEventListener("submit", processInAndOut);
       console.log(`%c
          /\\
         |==|

@@ -131,9 +131,7 @@
                 <input id="diceRollGuess" type="number" class="form-control text-center" name="diceRollGuess" list="diceRolls" min="1" max="6" step="1" required placeholder="Please guess the dice roll.">
                 <button class="btn btn-primary btn-lg mt-3" id="submit-button">Launch</button>
               </div>
-            
-            </form>
-            
+            </form>            
           </div>
         </div>
 
@@ -179,8 +177,8 @@
     <script src="script.js"></script>
     <script>
       // Function to process input and show output on screen
-      function processInAndOut() {
-        event.preventDefault()
+      function processInAndOut(event) {
+        event.preventDefault();
         // Get input value and run it through the main function
         const input = document.getElementById("diceRollGuess");
         var result = main(input.value);
