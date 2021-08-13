@@ -126,16 +126,16 @@
         <!--User Input-->
         <div class="row justify-content-center align-items-center m-4">
           <div class="col-lg-6 col-md-8 text-center">
-            <form class="text-center" name="input-form">
+            <form class="text-center" name="input-form" onsubmit="return processInAndOut(event)">
               <div class="mb-3">
-                <input type="text" class="form-control text-center" name="input-field" id="input-field"aria-describedby="inputHelp" placeholder="Please enter your input."
-                autocomplete="off"/>
+                <select class="form-select text-center" id="input-field" aria-label="Dice guess selection">
+                  <option selected>Choose odd or even.</option>
+                  <option value="odd">odd</option>
+                  <option value="even">even</option>
+                </select>
+                <button class="btn btn-primary btn-lg mt-3" id="submit-button">Launch</button>
               </div>
             </form>
-            <div class="text-center">
-              <button class="btn btn-primary btn-lg mt-3" id="submit-button">Launch</button>
-            </div>
-            
           </div>
         </div>
 
@@ -173,7 +173,8 @@
     <script src="script.js"></script>
     <script>
       // Function to process input and show output on screen
-      function processInAndOut() {
+      function processInAndOut(event) {
+        event.preventDefault()
         // Get input value and run it through the main function
         const input = document.getElementById("input-field");
         var result = main(input.value);
@@ -187,7 +188,7 @@
       
       // Submit setup
       const button = document.getElementById("submit-button");
-      button.addEventListener("click", processInAndOut);
+      button.addEventListener("submit", processInAndOut);
       console.log(`%c
          /\\
         |==|

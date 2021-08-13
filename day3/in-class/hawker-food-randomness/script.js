@@ -47,6 +47,8 @@ function main(input) {
   var output = `You guessed ${input}, but Uncle is cooking ${randomDish}, you have to pay for your meal.`;
   if (input == randomDish) {
     output = `You guessed ${input} and Uncle is cooking ${randomDish}, you get a free meal!`;
+  } else {
+    return "Please choose a dish."
   }
   return output;
 }
